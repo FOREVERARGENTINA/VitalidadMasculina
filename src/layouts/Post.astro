@@ -1,0 +1,93 @@
+---
+import Base from './Base.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { SITE_NAME, SITE_URL, MEDICO_NOMBRE } from '../utils/constants';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  category: string;
+  image?: string;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  pubDate,
+  category,
+  image,
+  author = MEDICO_NOMBRE,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
+
+const schemaBlogPosting = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: author,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalURL,
+  },
+  ...(image ? { image: new URL(image, SITE_URL).href } : {}),
+};
+---
+
+<Base title={title} description={description} ogImage={image}>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(schemaBlogPosting)}
+  />
+
+  <Header />
+
+  <main id="main-content">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li aria-current="page">{title}</li>
+      </ol>
+    </nav>
+
+    <!-- Header del artículo -->
+    <article>
+      <header class="post-header">
+        {category && <span class="post-category">{category}</span>}
+        <h1>{title}</h1>
+        <div class="post-meta">
+          <span>Por {author}</span>
+        </div>
+        {image && <img src={image} alt={title} loading="eager" />}
+      </header>
+
+      <div class="post-content">
+        <slot />
+      </div>
+
+      <!-- CTA al final del artículo -->
+      <footer class="post-cta">
+        <p>¿Querés consultar con el especialista?</p>
+        <a href="/contacto" class="btn-primary">Solicitá tu consulta</a>
+      </footer>
+    </article>
+  </main>
+
+  <Footer />
+</Base>

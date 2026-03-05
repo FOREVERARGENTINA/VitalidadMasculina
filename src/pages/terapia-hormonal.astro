@@ -1,0 +1,195 @@
+---
+import Page from '../layouts/Page.astro';
+import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astro';
+---
+
+<Page
+  title="Terapia Hormonal con Pellets"
+  description="Terapia de reemplazo hormonal masculino con pellets de testosterona. Dr. Leandro Mateu, Zona Palermo CABA. Consulta también por videollamada."
+>
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li aria-current="page">Terapia Hormonal</li>
+        </ol>
+      </nav>
+      <h1>Terapia Hormonal con Pellets</h1>
+      <p class="page-hero__lead">
+        Una opción de reemplazo hormonal de larga duración, procedimiento ambulatorio
+        y mínima intervención, para recuperar el equilibrio hormonal masculino.
+      </p>
+    </div>
+  </section>
+
+  <article class="page-content">
+    <div class="container container--narrow">
+
+      <section class="content-section reveal">
+        <h2>¿Qué son los pellets de testosterona?</h2>
+        <p>
+          Los pellets (también llamados "chip" de testosterona) son pequeños implantes
+          subcutáneos de testosterona de liberación prolongada. Se colocan bajo la piel
+          mediante un procedimiento ambulatorio sencillo y liberan la hormona de forma
+          gradual y constante durante varios meses.
+        </p>
+        <p>
+          A diferencia de otras formas de administración (inyecciones, geles o parches),
+          los pellets ofrecen niveles hormonales estables sin picos ni valles, lo que se
+          traduce en un efecto más sostenido y predecible.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Indicaciones</h2>
+        <p>
+          La terapia con pellets de testosterona está indicada en hombres con diagnóstico
+          de déficit hormonal (hipogonadismo), confirmado mediante análisis de laboratorio,
+          que presentan síntomas como:
+        </p>
+        <ul class="content-list">
+          <li>Fatiga crónica y disminución de la energía</li>
+          <li>Disminución del deseo</li>
+          <li>Alteraciones del estado de ánimo (irritabilidad, depresión leve)</li>
+          <li>Pérdida de masa muscular y aumento de grasa corporal</li>
+          <li>Dificultades cognitivas o de concentración</li>
+          <li>Disminución de la densidad ósea</li>
+          <li>Disfunción eréctil asociada a bajo nivel hormonal</li>
+        </ul>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>¿Cómo funcionan?</h2>
+        <p>
+          Una vez implantados, los pellets liberan testosterona de manera continua y controlada
+          en respuesta a la actividad física y al flujo sanguíneo del paciente.
+        </p>
+        <p>
+          Esto permite mantener niveles hormonales estables durante un período de
+          <strong>4 a 6 meses</strong> aproximadamente, evitando las fluctuaciones propias
+          de otras formas de administración.
+        </p>
+        <p>
+          Los niveles hormonales se controlan mediante análisis de laboratorio antes de la
+          colocación y durante el seguimiento, para ajustar la dosis si es necesario.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>El procedimiento</h2>
+
+        <!-- Card destacada del procedimiento -->
+        <div class="procedure-card">
+          <div class="procedure-detail">
+            <span class="procedure-detail__label">Tipo</span>
+            <span class="procedure-detail__value">Ambulatorio</span>
+          </div>
+          <div class="procedure-detail">
+            <span class="procedure-detail__label">Duración</span>
+            <span class="procedure-detail__value">15–20 minutos</span>
+          </div>
+          <div class="procedure-detail">
+            <span class="procedure-detail__label">Anestesia</span>
+            <span class="procedure-detail__value">Local</span>
+          </div>
+          <div class="procedure-detail">
+            <span class="procedure-detail__label">Zona</span>
+            <span class="procedure-detail__value">Región glútea</span>
+          </div>
+        </div>
+
+        <p>
+          El procedimiento es sencillo y no requiere internación. Se realiza en consultorio
+          bajo anestesia local en la región glútea. La inserción del pellet dura entre 15 y
+          20 minutos y el paciente puede retomar su actividad habitual el mismo día.
+        </p>
+        <p>
+          No deja cicatriz visible. En los días posteriores se recomienda evitar actividad
+          física intensa y el contacto con agua en la zona de la pequeña incisión.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Seguimiento</h2>
+        <p>
+          Tras la colocación, se programa un control a las semanas para evaluar la respuesta
+          y, posteriormente, seguimientos periódicos con análisis hormonales. La duración del
+          efecto varía según el metabolismo de cada paciente, y la recolocación se planifica
+          de forma individualizada.
+        </p>
+      </section>
+
+      <div class="page-cta">
+        <h2>¿Querés saber si esta terapia es para vos?</h2>
+        <p>Consultá con el especialista. Evaluamos tu caso con análisis de laboratorio y una entrevista personalizada.</p>
+        <a href="/contacto" class="btn-primary">Solicitá tu consulta</a>
+      </div>
+
+    </div>
+  </article>
+
+  <VideoConsultaBanner />
+</Page>
+
+<style>
+  .page-hero { background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%); padding: 3.5rem 0 3rem; color: var(--color-white); }
+  .page-hero h1 { font-size: clamp(2rem, 4vw, 2.75rem); color: var(--color-white); margin: 0.75rem 0 1rem; }
+  .page-hero__lead { font-size: 1.125rem; color: rgba(255,255,255,0.85); max-width: 600px; line-height: 1.6; font-style: italic; border-left: 3px solid var(--color-gold); padding-left: 1rem; }
+  .breadcrumb ol { display: flex; gap: 0.5rem; font-size: 0.8125rem; color: rgba(255,255,255,0.55); margin-bottom: 0.5rem; }
+  .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
+  .breadcrumb a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--color-gold); }
+  .page-content { padding: 3.5rem 0 4rem; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+  .container--narrow { max-width: 780px; }
+  .content-section { margin-bottom: 2.5rem; }
+  .content-section h2 { font-size: 1.5rem; color: var(--color-navy); margin-bottom: 0.875rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-navy-light); }
+  .content-section h3 { font-size: 1.1rem; color: var(--color-navy); margin: 1.25rem 0 0.5rem; }
+  .content-section p { color: var(--color-text); line-height: 1.75; margin-bottom: 0.875rem; }
+  .content-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.875rem; }
+  .content-list li { display: flex; align-items: flex-start; gap: 0.625rem; color: var(--color-text); line-height: 1.55; font-size: 0.9375rem; }
+  .content-list li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-gold); margin-top: 0.55em; }
+
+  /* Procedimiento */
+  .procedure-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background-color: var(--color-navy-light);
+    border: 1px solid var(--color-navy-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+  }
+  .procedure-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--color-white);
+  }
+  .procedure-detail__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+  }
+  .procedure-detail__value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    font-family: var(--font-heading);
+  }
+
+  .page-cta { margin-top: 3rem; padding: 2.5rem; background-color: var(--color-navy-light); border-radius: var(--radius-lg); text-align: center; }
+  .page-cta h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .page-cta p { color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: 0.9375rem; }
+  .btn-primary { display: inline-block; padding: 0.8125rem 2rem; background-color: var(--color-gold); color: var(--color-white); font-weight: 600; border-radius: var(--radius-md); transition: background-color 0.2s, transform 0.15s; }
+  .btn-primary:hover { background-color: var(--color-navy); transform: translateY(-2px); }
+
+  @media (max-width: 480px) {
+    .procedure-card { grid-template-columns: 1fr; }
+  }
+</style>

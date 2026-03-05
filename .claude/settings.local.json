@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"E:\\\\Aideas\\\\VITALIDAD MASCULINA\" && npm create astro@latest . -- --template minimal --typescript strict --no-install --no-git 2>&1)",
+      "Bash(cd \"E:\\\\Aideas\\\\VITALIDAD MASCULINA\" && printf '.\\\\n' | npm create astro@latest . -- --template minimal --typescript strict --no-install --no-git 2>&1)",
+      "Bash(cd \"E:\\\\Aideas\\\\VITALIDAD MASCULINA\" && npm create astro@latest _astro_tmp -- --template minimal --typescript strict --no-install --no-git 2>&1)",
+      "Bash(cd E:\\\\Aideas\\\\VITALIDAD MASCULINA:*)",
+      "Bash(cd \"E:\\\\Aideas\\\\VITALIDAD MASCULINA\" && npm install 2>&1)",
+      "Bash(head:*)",
+      "Bash(tail:2)",
+      "Bash(cd \"E:\\\\Aideas\\\\VITALIDAD MASCULINA\" && npx astro check 2>&1)",
+      "Bash(cd \"E:\\\\Aideas\\\\VITALIDAD MASCULINA\" && npm run build 2>&1)",
+      "Bash(tail:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(tail:*2)"
+    ]
+  }
+}

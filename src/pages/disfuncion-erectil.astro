@@ -1,0 +1,275 @@
+---
+import Page from '../layouts/Page.astro';
+import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astro';
+---
+
+<Page
+  title="Disfunción Eréctil"
+  description="El Dr. Leandro Mateu ofrece diagnóstico y tratamiento especializado para la disfunción eréctil en Zona Palermo, CABA y por videollamada."
+>
+  <!-- Hero de página -->
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li aria-current="page">Disfunción Eréctil</li>
+        </ol>
+      </nav>
+      <h1>Disfunción Eréctil</h1>
+      <p class="page-hero__lead">
+        La disfunción eréctil no es solo un problema. Es una señal de que algo en tu salud necesita atención.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contenido principal -->
+  <article class="page-content">
+    <div class="container container--narrow">
+
+      <section class="content-section reveal">
+        <h2>¿Qué es la disfunción eréctil?</h2>
+        <p>
+          La disfunción eréctil es la dificultad persistente para lograr o mantener una erección
+          suficiente para tener relaciones satisfactorias. Es una condición frecuente que puede
+          afectar a hombres de cualquier edad, aunque su incidencia aumenta con los años.
+        </p>
+        <p>
+          Más allá del impacto en la vida íntima, puede ser un indicador temprano de condiciones
+          de salud subyacentes que requieren evaluación médica.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Síntomas y señales de alerta</h2>
+        <ul class="content-list">
+          <li>Dificultad para lograr una erección al inicio del acto sexual</li>
+          <li>Dificultad para mantener la erección durante el acto</li>
+          <li>Erecciones menos firmes que en el pasado</li>
+          <li>Reducción del deseo o de la motivación sexual</li>
+          <li>Erecciones espontáneas (nocturnas o matutinas) disminuidas o ausentes</li>
+        </ul>
+        <p class="content-note">
+          Si estos síntomas se presentan de forma frecuente y persisten por más de tres meses,
+          es recomendable consultar con un especialista.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Causas</h2>
+        <p>
+          La disfunción eréctil puede tener origen físico, hormonal, emocional o —con frecuencia—
+          una combinación de varios factores.
+        </p>
+
+        <h3>Causas físicas</h3>
+        <ul class="content-list">
+          <li>Enfermedades cardiovasculares e hipertensión arterial</li>
+          <li>Diabetes tipo 2</li>
+          <li>Colesterol elevado y síndrome metabólico</li>
+          <li>Obesidad y sedentarismo</li>
+          <li>Tabaquismo y consumo de alcohol</li>
+          <li>Efectos secundarios de ciertos medicamentos</li>
+        </ul>
+
+        <h3>Causas hormonales</h3>
+        <ul class="content-list">
+          <li>Niveles bajos de testosterona (hipogonadismo)</li>
+          <li>Alteraciones en hormonas tiroideas</li>
+          <li>Hiperprolactinemia</li>
+        </ul>
+
+        <h3>Causas emocionales y psicológicas</h3>
+        <ul class="content-list">
+          <li>Ansiedad de rendimiento</li>
+          <li>Estrés crónico o laboral</li>
+          <li>Depresión</li>
+          <li>Conflictos de pareja</li>
+          <li>Experiencias previas negativas</li>
+        </ul>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Enfoque de tratamiento</h2>
+        <p>
+          El tratamiento comienza con una evaluación integral: historia clínica, análisis hormonales
+          y cardiovasculares, y en algunos casos estudios específicos. No existe un tratamiento único
+          para todos los pacientes.
+        </p>
+        <p>
+          Según la causa identificada, el abordaje puede incluir cambios en el estilo de vida,
+          tratamiento farmacológico, corrección hormonal, o una combinación de estas opciones.
+          En algunos casos se trabaja de forma interdisciplinaria con otros especialistas.
+        </p>
+        <p>
+          El objetivo no es solo resolver el síntoma, sino mejorar la salud global del paciente.
+        </p>
+      </section>
+
+      <!-- CTA -->
+      <div class="page-cta">
+        <h2>¿Querés consultar con el especialista?</h2>
+        <p>Turnos presenciales en Zona Palermo, CABA · Videoconsulta disponible para todo el país.</p>
+        <a href="/contacto" class="btn-primary">Solicitá tu consulta</a>
+      </div>
+
+    </div>
+  </article>
+
+  <VideoConsultaBanner />
+</Page>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+    padding: 3.5rem 0 3rem;
+    color: var(--color-white);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-white);
+    margin: 0.75rem 0 1rem;
+  }
+
+  .page-hero__lead {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 600px;
+    line-height: 1.6;
+    font-style: italic;
+    border-left: 3px solid var(--color-gold);
+    padding-left: 1rem;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.5rem;
+  }
+
+  .breadcrumb li + li::before {
+    content: '/';
+    margin-right: 0.5rem;
+    opacity: 0.5;
+  }
+
+  .breadcrumb a {
+    color: rgba(255,255,255,0.7);
+    transition: color 0.15s;
+  }
+
+  .breadcrumb a:hover { color: var(--color-gold); }
+
+  /* Contenido */
+  .page-content {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .container--narrow {
+    max-width: 780px;
+  }
+
+  .content-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+    color: var(--color-navy);
+    margin-bottom: 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-navy-light);
+  }
+
+  .content-section h3 {
+    font-size: 1.1rem;
+    color: var(--color-navy);
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .content-section p {
+    color: var(--color-text);
+    line-height: 1.75;
+    margin-bottom: 0.875rem;
+  }
+
+  .content-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .content-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    color: var(--color-text);
+    line-height: 1.55;
+    font-size: 0.9375rem;
+  }
+
+  .content-list li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-gold);
+    margin-top: 0.55em;
+  }
+
+  .content-note {
+    background-color: var(--color-navy-light);
+    border-left: 3px solid var(--color-navy);
+    padding: 0.875rem 1rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.9rem !important;
+    color: var(--color-navy) !important;
+  }
+
+  /* CTA */
+  .page-cta {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background-color: var(--color-navy-light);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .page-cta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-cta p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.8125rem 2rem;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-navy);
+    transform: translateY(-2px);
+  }
+</style>

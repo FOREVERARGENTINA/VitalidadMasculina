@@ -1,0 +1,199 @@
+﻿---
+// Sección destacada de videoconsulta
+// Presente en homepage y en contacto
+---
+
+<section class="videoconsulta" aria-labelledby="videoconsulta-heading">
+  <div class="videoconsulta-inner">
+    <div class="videoconsulta-media">
+      <img
+        src="/images/videollamada.webp"
+        alt="Paciente en videoconsulta médica"
+        width="420"
+        height="280"
+        loading="lazy"
+        decoding="async"
+        class="videoconsulta-image"
+      />
+    </div>
+
+    <div class="videoconsulta-content">
+      <p class="videoconsulta-eyebrow">Nueva modalidad</p>
+      <h2 id="videoconsulta-heading" class="videoconsulta-title">
+        Atención por videollamada desde cualquier parte del país
+      </h2>
+      <p class="videoconsulta-desc">
+        Realizá tu consulta de forma cómoda, privada y segura desde tu hogar.
+        Sin desplazamientos, con la misma calidad de atención que en consultorio.
+      </p>
+
+      <ul class="videoconsulta-features" role="list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Consulta confidencial y personalizada
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Disponible para toda Argentina
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          Sin tiempos de espera en sala
+        </li>
+      </ul>
+
+      <a href="/contacto" class="videoconsulta-cta">
+        Solicitá tu videoconsulta
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .videoconsulta {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(700px 260px at 8% -14%, rgba(201, 168, 76, 0.22), transparent 62%),
+      radial-gradient(900px 360px at 100% 100%, rgba(147, 171, 226, 0.14), transparent 62%),
+      linear-gradient(140deg, #09173a 0%, #112457 52%, #182f6c 100%);
+    padding: 4rem 1.5rem;
+  }
+
+  .videoconsulta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.02) 0px,
+        rgba(255, 255, 255, 0.02) 1px,
+        transparent 1px,
+        transparent 15px
+      );
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .videoconsulta-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    backdrop-filter: blur(2px);
+    box-shadow: 0 26px 48px rgba(3, 9, 28, 0.34);
+  }
+
+  .videoconsulta-media {
+    flex-shrink: 0;
+    width: min(420px, 42vw);
+  }
+
+  .videoconsulta-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    box-shadow: 0 20px 36px rgba(2, 8, 28, 0.4);
+  }
+
+  .videoconsulta-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .videoconsulta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1.2;
+    margin-bottom: 0.875rem;
+  }
+
+  .videoconsulta-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    max-width: 520px;
+  }
+
+  .videoconsulta-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .videoconsulta-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .videoconsulta-features svg {
+    color: var(--color-gold);
+    flex-shrink: 0;
+  }
+
+  .videoconsulta-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-gold);
+    color: var(--color-white);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 999px;
+    transition: background-color 0.2s, transform 0.15s;
+  }
+
+  .videoconsulta-cta:hover {
+    background-color: #b8973a;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 700px) {
+    .videoconsulta-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 1.2rem;
+    }
+
+    .videoconsulta-media {
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .videoconsulta-features {
+      align-items: center;
+    }
+  }
+</style>

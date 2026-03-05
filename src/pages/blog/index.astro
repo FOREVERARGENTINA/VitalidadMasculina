@@ -1,0 +1,181 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../../layouts/Page.astro';
+import BlogCard from '../../components/sections/BlogCard.astro';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.id.startsWith('_'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Page
+  title="Blog · Salud Masculina"
+  description="Artículos sobre salud masculina escritos por el Dr. Leandro Mateu: disfunción eréctil, eyaculación precoz, testosterona, bienestar y más."
+>
+  <!-- Hero de página -->
+  <section class="page-hero">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol>
+          <li><a href="/">Inicio</a></li>
+          <li aria-current="page">Blog</li>
+        </ol>
+      </nav>
+      <h1>Blog de Salud Masculina</h1>
+      <p class="page-hero__lead">
+        Información médica actualizada, clara y sin vueltas sobre los temas que más importan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid de posts -->
+  <section class="blog-section">
+    <div class="container">
+
+      {posts.length > 0 ? (
+        <div class="blog-grid">
+          {posts.map(post => (
+            <BlogCard
+              title={post.data.title}
+              excerpt={post.data.description}
+              slug={post.id.replace(/\.md$/, '')}
+              image={post.data.image}
+              category={post.data.category}
+              pubDate={post.data.pubDate}
+            />
+          ))}
+        </div>
+      ) : (
+        <!-- Estado vacío — sin artículos publicados aún -->
+        <div class="blog-empty">
+          <div class="blog-empty__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h2>Próximamente</h2>
+          <p>
+            Estamos trabajando en los primeros artículos del blog.<br />
+            Volvé pronto para encontrar contenido sobre salud masculina.
+          </p>
+          <!-- TODO: publicar los primeros artículos cuando el cliente los apruebe -->
+          <a href="/contacto" class="btn-outline">
+            Consultar con el especialista
+          </a>
+        </div>
+      )}
+
+    </div>
+  </section>
+</Page>
+
+<style>
+  /* Hero */
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+    padding: 3.5rem 0 3rem;
+    color: var(--color-white);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--color-white);
+    margin: 0.75rem 0 1rem;
+  }
+
+  .page-hero__lead {
+    font-size: 1.0625rem;
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.5rem;
+  }
+
+  .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
+  .breadcrumb a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
+  .breadcrumb a:hover { color: var(--color-gold); }
+
+  /* Sección principal */
+  .blog-section {
+    padding: 3.5rem 0 5rem;
+    background-color: var(--color-bg);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Grid 3 col desktop / 2 tablet / 1 mobile */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Estado vacío */
+  .blog-empty {
+    max-width: 480px;
+    margin: 4rem auto;
+    text-align: center;
+  }
+
+  .blog-empty__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-navy-light);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    color: var(--color-navy);
+  }
+
+  .blog-empty h2 {
+    font-size: 1.5rem;
+    color: var(--color-navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-empty p {
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border: 2px solid var(--color-navy);
+    color: var(--color-navy);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+  }
+</style>

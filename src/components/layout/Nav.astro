@@ -1,0 +1,173 @@
+---
+const services = [
+  { label: 'Disfunción Eréctil',  href: '/disfuncion-erectil' },
+  { label: 'Eyaculación Precoz',  href: '/eyaculacion-precoz' },
+  { label: 'Falta de Deseo',      href: '/falta-de-deseo'     },
+  { label: 'Terapia Hormonal',    href: '/terapia-hormonal'   },
+  { label: 'Urología',            href: '/urologia'           },
+];
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<nav aria-label="Navegación principal">
+  <ul class="nav-list" role="list">
+    <li>
+      <a href="/" class:list={['nav-link', { 'nav-link--active': isActive('/') }]}>
+        Inicio
+      </a>
+    </li>
+
+    <!-- Dropdown Servicios -->
+    <li class="nav-dropdown">
+      <button
+        class:list={['nav-link nav-link--dropdown', {
+          'nav-link--active': services.some(s => isActive(s.href)),
+        }]}
+        aria-expanded="false"
+        aria-haspopup="true"
+      >
+        Servicios
+        <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="currentColor">
+          <path d="M6 8L1 3h10L6 8z"/>
+        </svg>
+      </button>
+      <ul class="dropdown-menu" role="list">
+        {services.map(s => (
+          <li>
+            <a
+              href={s.href}
+              class:list={['dropdown-link', { 'dropdown-link--active': isActive(s.href) }]}
+            >
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </li>
+
+    <li>
+      <a href="/blog" class:list={['nav-link', { 'nav-link--active': isActive('/blog') }]}>
+        Blog
+      </a>
+    </li>
+    <li>
+      <a href="/sobre-mi" class:list={['nav-link', { 'nav-link--active': isActive('/sobre-mi') }]}>
+        Sobre mí
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0.38rem;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.46rem 0.85rem;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #1d2d64;
+    border-radius: 999px;
+    transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-body);
+    white-space: nowrap;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: #a88425;
+    background: rgba(255, 255, 255, 0.76);
+    border-color: rgba(26, 42, 94, 0.16);
+    box-shadow: 0 6px 14px rgba(26, 42, 94, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .nav-link--active {
+    color: #a88425;
+    background: linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%);
+    border-color: rgba(26, 42, 94, 0.15);
+    box-shadow: 0 6px 14px rgba(26, 42, 94, 0.12);
+    font-weight: 700;
+  }
+
+  /* Dropdown */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 250px;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+    border-radius: 14px;
+    box-shadow: 0 18px 34px rgba(15, 30, 76, 0.22);
+    border: 1px solid rgba(26, 42, 94, 0.14);
+    padding: 0.55rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.18s ease, visibility 0.18s ease;
+    z-index: 50;
+  }
+
+  .nav-dropdown:hover .dropdown-menu,
+  .nav-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: 0.56rem 0.78rem;
+    font-size: 0.86rem;
+    color: #2d3748;
+    border-radius: 10px;
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .dropdown-link:hover,
+  .dropdown-link:focus-visible {
+    color: #1d2d64;
+    background-color: #edf2fb;
+  }
+
+  .dropdown-link--active {
+    color: #a88425;
+    font-weight: 700;
+    background: #f7f2e2;
+  }
+</style>
+
+<script>
+  // Toggle dropdown en mobile con teclado y click
+  document.querySelectorAll<HTMLButtonElement>('.nav-link--dropdown').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+    });
+  });
+
+  // Cerrar dropdown al hacer click fuera
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll<HTMLButtonElement>('.nav-link--dropdown').forEach(btn => {
+      const dropdown = btn.closest('.nav-dropdown');
+      if (dropdown && !dropdown.contains(e.target as Node)) {
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,100 @@
+/* =============================================================
+   VITALIDAD MASCULINA — CSS Scroll-driven Animations (nativo)
+   Sin JS. Sin librerías.
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   Reveal al hacer scroll — fade-in + translateY
+   Usar clase .reveal en imágenes de servicios, blog cards,
+   secciones secundarias del homepage
+   ------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal-fade linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 40%;
+}
+
+@keyframes reveal-fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger para grillas (blog cards, service cards) */
+.reveal:nth-child(2) { animation-delay: 0.1s; }
+.reveal:nth-child(3) { animation-delay: 0.2s; }
+.reveal:nth-child(4) { animation-delay: 0.3s; }
+
+/* -------------------------------------------------------------
+   Header scroll shadow — aparece al bajar el scroll
+   ------------------------------------------------------------- */
+@supports (animation-timeline: scroll()) {
+  .site-header {
+    animation: header-shadow linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 80px;
+  }
+
+  @media (min-width: 769px) {
+    .site-header .header-inner {
+      animation: header-compact-inner linear both;
+      animation-timeline: scroll();
+      animation-range: 0px 90px;
+    }
+
+    .site-header .logo-image {
+      animation: header-compact-logo linear both;
+      animation-timeline: scroll();
+      animation-range: 0px 90px;
+    }
+
+    .site-header .btn-cta {
+      animation: header-compact-cta linear both;
+      animation-timeline: scroll();
+      animation-range: 0px 90px;
+    }
+  }
+
+  @keyframes header-shadow {
+    to {
+      box-shadow: 0 2px 16px rgba(26, 42, 94, 0.15);
+    }
+  }
+
+  @keyframes header-compact-inner {
+    to {
+      padding-top: 0.18rem;
+      padding-bottom: 0.18rem;
+    }
+  }
+
+  @keyframes header-compact-logo {
+    to {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+  }
+
+  @keyframes header-compact-cta {
+    to {
+      padding: 0.42rem 0.95rem;
+      font-size: 0.72rem;
+    }
+  }
+}
+
+/* -------------------------------------------------------------
+   Fallback: para navegadores sin soporte de scroll-driven
+   (Firefox < 110, Safari < 17.2)
+   @supports evita que el fallback interfiera en navegadores modernos
+   ------------------------------------------------------------- */
+@supports not (animation-timeline: view()) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
