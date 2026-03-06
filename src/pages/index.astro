@@ -59,6 +59,31 @@ const services = [
     <!-- ── Hero ───────────────────────────────────────────────── -->
     <Hero />
 
+    <!-- ── Stats ──────────────────────────────────────────────── -->
+    <section class="section-stats" aria-label="Indicadores del consultorio">
+      <div class="stats-container">
+        <div class="stat-item reveal">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Años en ejercicio</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Pacientes atendidos</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Privado y confidencial</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item reveal">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Disponible por video</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ── Servicios ──────────────────────────────────────────── -->
     <section id="servicios" class="section section--light" aria-labelledby="servicios-heading">
       <div class="container">
@@ -205,16 +230,16 @@ const services = [
   }
 
   .section--light {
-    background: linear-gradient(180deg, #fbfbf9 0%, #f6f7fb 100%);
+    background: var(--color-bg-2);
   }
 
   .section--navy {
     position: relative;
     isolation: isolate;
     background:
-      radial-gradient(1200px 520px at 12% -10%, rgba(201, 168, 76, 0.2), transparent 58%),
-      radial-gradient(900px 420px at 85% 110%, rgba(146, 168, 220, 0.18), transparent 62%),
-      linear-gradient(135deg, #081433 0%, #13265a 56%, #1a2f6c 100%);
+      radial-gradient(900px 400px at 10% -10%, rgba(74, 158, 255, 0.08), transparent 55%),
+      radial-gradient(700px 320px at 88% 108%, rgba(201, 168, 76, 0.10), transparent 58%),
+      linear-gradient(135deg, #060c1c 0%, #0a1628 60%, #0d1d35 100%);
   }
 
   .section--navy::before {
@@ -225,12 +250,12 @@ const services = [
     background:
       repeating-linear-gradient(
         -45deg,
-        rgba(255, 255, 255, 0.025) 0px,
-        rgba(255, 255, 255, 0.025) 1px,
+        rgba(74, 158, 255, 0.025) 0px,
+        rgba(74, 158, 255, 0.025) 1px,
         transparent 1px,
-        transparent 14px
+        transparent 18px
       );
-    opacity: 0.38;
+    opacity: 0.5;
     pointer-events: none;
   }
 
@@ -263,14 +288,13 @@ const services = [
 
   .section-header h2 {
     font-size: clamp(2rem, 3.3vw, 2.8rem);
-    color: var(--color-navy);
     margin-bottom: 1rem;
     letter-spacing: 0.01em;
   }
 
   .section-lead {
     font-size: 1.1rem;
-    color: #4b5563;
+    color: var(--color-text-muted);
     line-height: 1.78;
     max-width: 62ch;
     margin: 0 auto;
@@ -289,9 +313,9 @@ const services = [
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: var(--color-navy);
-    background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
-    border: 1px solid rgba(26, 42, 94, 0.16);
+    color: var(--color-text-muted);
+    background: rgba(74, 158, 255, 0.06);
+    border: 1px solid rgba(74, 158, 255, 0.18);
     border-radius: 999px;
     padding: 0.48rem 0.82rem;
   }
@@ -418,24 +442,27 @@ const services = [
   .btn-outline-navy {
     display: inline-block;
     padding: 0.84rem 1.8rem;
-    border: 2px solid var(--color-navy);
-    color: var(--color-navy);
+    border: 1px solid rgba(74, 158, 255, 0.35);
+    color: var(--color-electric);
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     border-radius: 999px;
-    transition: background-color 0.2s, color 0.2s, transform 0.15s;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
   }
 
   .btn-outline-navy:hover {
-    background-color: var(--color-navy);
-    color: var(--color-white);
+    background-color: rgba(74, 158, 255, 0.08);
+    border-color: rgba(74, 158, 255, 0.6);
     transform: translateY(-2px);
   }
 
   /* ── CTA final ───────────────────────────────────────────────── */
   .cta-final {
-    background: linear-gradient(135deg, #e8edf8 0%, #d5deef 100%);
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(74, 158, 255, 0.12), transparent 55%),
+      radial-gradient(ellipse at 85% 40%, rgba(201, 168, 76, 0.10), transparent 55%),
+      #060c1c;
   }
 
   .cta-final__inner {
@@ -445,7 +472,7 @@ const services = [
 
   .cta-final h2 {
     font-size: clamp(2rem, 3vw, 2.7rem);
-    color: var(--color-navy);
+    color: var(--color-text);
     margin-bottom: 1.1rem;
   }
 
@@ -460,20 +487,20 @@ const services = [
     display: inline-block;
     padding: 1.05rem 2.6rem;
     background-color: var(--color-gold);
-    color: var(--color-white);
+    color: var(--color-bg-hero);
     font-weight: 700;
     font-size: 0.95rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     border-radius: 999px;
-    box-shadow: 0 9px 24px rgba(201, 168, 76, 0.35);
+    box-shadow: 0 8px 24px rgba(201, 168, 76, 0.3);
     transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
   }
 
   .btn-primary-lg:hover {
-    background-color: var(--color-navy);
+    background-color: #dbb94f;
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(26, 42, 94, 0.25);
+    box-shadow: 0 0 32px rgba(201, 168, 76, 0.4), 0 10px 24px rgba(201, 168, 76, 0.2);
   }
 
   /* ── Responsive ──────────────────────────────────────────────── */
@@ -518,6 +545,65 @@ const services = [
     .service-trust { justify-content: flex-start; }
     .services-grid { grid-template-columns: 1fr !important; }
     .blog-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Stats section ───────────────────────────────────────── */
+  .section-stats {
+    background: #060c1c;
+    padding: 3.5rem 1.75rem;
+    border-top: 1px solid rgba(74, 158, 255, 0.08);
+    border-bottom: 1px solid rgba(74, 158, 255, 0.08);
+  }
+
+  .stats-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    color: var(--color-gold);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 3.5rem;
+    background: rgba(74, 158, 255, 0.18);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .stats-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1rem;
+    }
+    .stat-divider { display: none; }
   }
 </style>
 
