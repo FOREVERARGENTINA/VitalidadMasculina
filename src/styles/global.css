@@ -51,15 +51,19 @@
    ------------------------------------------------------------- */
 :root {
   /* Colores */
-  --color-navy:        #1A2A5E;
-  --color-navy-dark:   #0F1A3E;
-  --color-navy-light:  #E8EBF5;
-  --color-gold:        #C9A84C;
-  --color-sand:        #D4B896;
-  --color-bg:          #FAFAF8;
-  --color-text:        #1F1F1F;
-  --color-text-muted:  #6B7280;
-  --color-white:       #FFFFFF;
+  --color-navy:         #1A2A5E;
+  --color-navy-dark:    #0F1A3E;
+  --color-navy-light:   #1a2d4d;
+  --color-gold:         #C9A84C;
+  --color-sand:         #D4B896;
+  --color-bg:           #0a1628;
+  --color-bg-2:         #0d1d35;
+  --color-bg-3:         #111e38;
+  --color-electric:     #4a9eff;
+  --color-electric-dim: rgba(74, 158, 255, 0.12);
+  --color-text:         #e2e8f4;
+  --color-text-muted:   #7a9bb5;
+  --color-white:        #FFFFFF;
 
   /* Tipografías */
   --font-heading: 'Playfair Display', Georgia, serif;
@@ -104,7 +108,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   line-height: 1.2;
-  color: var(--color-navy);
+  color: var(--color-text);
 }
 
 img,
