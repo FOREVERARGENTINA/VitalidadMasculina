@@ -49,7 +49,6 @@ const icons = {
 <style>
   .service-card {
     position: relative;
-    overflow: hidden;
     background: rgba(13, 29, 53, 0.75);
     border-radius: var(--radius-lg);
     border: 1px solid rgba(74, 158, 255, 0.15);
@@ -76,6 +75,7 @@ const icons = {
     min-height: 100%;
     height: 100%;
     color: inherit;
+    overflow: hidden;
   }
 
   .service-card__link:focus-visible {
@@ -102,7 +102,7 @@ const icons = {
     background: rgba(74, 158, 255, 0.18);
     border-color: rgba(74, 158, 255, 0.45);
     box-shadow: 0 0 16px rgba(74, 158, 255, 0.2);
-    color: #7db8ff;
+    color: var(--color-electric-light);
   }
 
   .service-card__title {
