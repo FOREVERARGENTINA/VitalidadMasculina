@@ -3,7 +3,7 @@ title: "Terapia de intimidad: cuándo consultar y qué puede mejorar"
 description: "Señales frecuentes para considerar terapia de intimidad, qué problemas suele abordar y por qué consultar temprano mejora resultados."
 pubDate: 2026-03-05
 category: "Bienestar"
-image: "/images/videollamada.webp"
+image: "/images/terapia-intimidad.webp"
 author: "Dr. Leandro Mateu"
 ---
 

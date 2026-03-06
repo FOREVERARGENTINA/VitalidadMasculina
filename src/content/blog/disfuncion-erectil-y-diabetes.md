@@ -3,7 +3,7 @@ title: "Disfunción eréctil y diabetes: por qué deben evaluarse en conjunto"
 description: "Qué relación existe entre diabetes y disfunción eréctil, y por qué una evaluación integral mejora el abordaje clínico."
 pubDate: 2026-03-05
 category: "Disfunción Eréctil"
-image: "/images/hero.webp"
+image: "/images/disfuncion-erectil-diabetes.webp"
 author: "Dr. Leandro Mateu"
 ---
 

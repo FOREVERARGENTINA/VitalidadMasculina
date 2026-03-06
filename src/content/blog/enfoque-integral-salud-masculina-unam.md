@@ -3,7 +3,7 @@ title: "Enfoque integral en salud masculina: aprendizajes de una tesis de la UNA
 description: "Resumen práctico de una tesis de la UNAM sobre prevención y enfoque integral en terapia, con lectura crítica para el contexto actual."
 pubDate: 2026-03-05
 category: "Salud Masculina"
-image: "/images/hero.webp"
+image: "/images/enfoque-integral-salud-masculina.webp"
 author: "Dr. Leandro Mateu"
 ---
 
