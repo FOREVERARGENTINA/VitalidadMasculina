@@ -30,15 +30,15 @@ const { Content } = await render(post);
 
   .post-content h2 {
     font-size: 1.5rem;
-    color: var(--color-navy);
+    color: var(--color-text);
     margin: 2rem 0 0.875rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-navy-light);
+    border-bottom: 2px solid rgba(226, 232, 244, 0.2);
   }
 
   .post-content h3 {
     font-size: 1.15rem;
-    color: var(--color-navy);
+    color: rgba(226, 232, 244, 0.92);
     margin: 1.5rem 0 0.5rem;
   }
 
@@ -63,7 +63,7 @@ const { Content } = await render(post);
   }
 
   .post-content strong {
-    color: var(--color-navy);
+    color: var(--color-gold-light);
     font-weight: 600;
   }
 
@@ -74,19 +74,19 @@ const { Content } = await render(post);
   }
 
   .post-content a:hover {
-    color: var(--color-navy);
+    color: var(--color-gold-light);
   }
 
   .post-content blockquote {
     border-left: 3px solid var(--color-gold);
     padding: 0.875rem 1.25rem;
     margin: 1.5rem 0;
-    background-color: var(--color-navy-light);
+    background-color: var(--color-bg-2);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   }
 
   .post-content blockquote p {
-    color: var(--color-navy);
+    color: var(--color-text);
     font-style: italic;
     margin: 0;
   }
@@ -116,7 +116,7 @@ const { Content } = await render(post);
 
   .post-header h1 {
     font-size: clamp(1.875rem, 4vw, 2.75rem);
-    color: var(--color-navy);
+    color: var(--color-text);
     line-height: 1.15;
     margin-bottom: 1rem;
   }
@@ -162,7 +162,7 @@ const { Content } = await render(post);
   .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
 
   .breadcrumb a {
-    color: var(--color-navy);
+    color: rgba(226, 232, 244, 0.82);
     transition: color 0.15s;
   }
 
@@ -173,14 +173,15 @@ const { Content } = await render(post);
     max-width: 780px;
     margin: 3rem auto 4rem;
     padding: 2.5rem 1.5rem;
-    background-color: var(--color-navy-light);
+    background-color: var(--color-bg-2);
+    border: 1px solid rgba(226, 232, 244, 0.16);
     border-radius: var(--radius-lg);
     text-align: center;
   }
 
   .post-cta p {
     font-size: 1.125rem;
-    color: var(--color-navy);
+    color: var(--color-text);
     font-family: var(--font-heading);
     font-weight: 700;
     margin-bottom: 1rem !important;
@@ -190,14 +191,14 @@ const { Content } = await render(post);
     display: inline-block;
     padding: 0.8125rem 2rem;
     background-color: var(--color-gold);
-    color: var(--color-white);
+    color: var(--color-bg-hero);
     font-weight: 600;
     border-radius: var(--radius-md);
     transition: background-color 0.2s, transform 0.15s;
   }
 
   .btn-primary:hover {
-    background-color: var(--color-navy);
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
   }
 </style>

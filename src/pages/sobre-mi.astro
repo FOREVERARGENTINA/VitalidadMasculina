@@ -21,9 +21,7 @@ const schemaPerson = {
   },
 };
 
-// TODO: reemplazar por foto profesional real cuando el cliente la provea
-// Imagen de Unsplash — médico masculino, entorno profesional
-const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80';
+const fotoPlaceholder = '/images/consultorio.webp';
 ---
 
 <Page
@@ -52,41 +50,35 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
 
         <!-- Foto -->
         <div class="perfil__foto">
-          <!-- TODO: reemplazar por foto profesional real cuando el cliente la provea -->
           <img
             src={fotoPlaceholder}
-            alt={`Retrato del ${MEDICO_NOMBRE}`}
-            width="480"
-            height="560"
+            alt="Consultorio de medicina masculina — diplomas y biblioteca médica"
+            width="800"
+            height="600"
             loading="eager"
             class="foto-img"
           />
-          <div class="perfil__badge">
-            <!-- TODO: completar con matrícula cuando el cliente la provea -->
-            <span class="badge-label">Matrícula</span>
-            <span class="badge-value">Pendiente</span>
-          </div>
         </div>
 
         <!-- Contenido -->
         <div class="perfil__contenido">
 
-          <p class="perfil__nombre-label">Especialista en Salud Masculina</p>
+          <p class="perfil__nombre-label">Medicina masculina · {CONSULTORIO_ZONA}</p>
           <h2 class="perfil__nombre">{MEDICO_NOMBRE}</h2>
 
-          <!-- TODO: completar con especialidad y formación cuando el cliente las provea -->
           <div class="perfil__especialidad">
-            <span class="tag"><!-- TODO: especialidad / título --></span>
+            <span class="tag">Especialista en Salud Masculina</span>
           </div>
 
           <p class="perfil__bio">
-            <!-- TODO: reemplazar con la biografía y trayectoria profesional que provea el cliente -->
-            El {MEDICO_NOMBRE} es especialista en salud masculina con foco en el diagnóstico y
-            tratamiento integral de problemáticas que impactan en la calidad de vida del hombre.
+            Una práctica médica privada dedicada íntegramente a la salud del hombre.
+            El enfoque es integral: se trabaja sobre el origen del problema, no solo
+            sobre el síntoma, con diagnóstico de precisión y seguimiento personalizado.
           </p>
           <p class="perfil__bio">
-            Su enfoque combina el rigor clínico con una atención cercana y personalizada,
-            entendiendo que cada paciente tiene una historia y un contexto únicos.
+            Cada consulta se desarrolla en un entorno de absoluta reserva, sin listas
+            de espera, con el tiempo necesario para escuchar y planificar el tratamiento
+            más adecuado para cada paciente.
           </p>
 
           <!-- Modalidades de atención -->
@@ -124,15 +116,7 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
 </Page>
 
 <style>
-  .page-hero { background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%); padding: 3.5rem 0 3rem; color: var(--color-white); }
-  .page-hero h1 { font-size: clamp(2rem, 4vw, 2.75rem); color: var(--color-white); margin: 0.75rem 0 0; }
-  .breadcrumb ol { display: flex; gap: 0.5rem; font-size: 0.8125rem; color: rgba(255,255,255,0.55); margin-bottom: 0.5rem; }
-  .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
-  .breadcrumb a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
-  .breadcrumb a:hover { color: var(--color-gold); }
-
   .page-content { padding: 4rem 0 5rem; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
   /* Layout perfil */
   .perfil {
@@ -142,13 +126,13 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
     align-items: start;
   }
 
-  /* Foto */
   .perfil__foto { position: relative; }
 
   .foto-img {
     width: 100%;
-    aspect-ratio: 4/5;
+    aspect-ratio: 4/3;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
   }
@@ -158,7 +142,7 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
     bottom: -1rem;
     right: -1rem;
     background-color: var(--color-gold);
-    color: var(--color-white);
+    color: var(--color-bg-hero);
     padding: 0.75rem 1.25rem;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
@@ -180,7 +164,6 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
     font-weight: 700;
   }
 
-  /* Contenido */
   .perfil__nombre-label {
     font-size: 0.8125rem;
     font-weight: 700;
@@ -192,19 +175,18 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
 
   .perfil__nombre {
     font-size: clamp(1.75rem, 3vw, 2.5rem);
-    color: var(--color-navy);
+    color: var(--color-text);
     margin-bottom: 0.75rem;
   }
 
-  .perfil__especialidad {
-    margin-bottom: 1.5rem;
-  }
+  .perfil__especialidad { margin-bottom: 1.5rem; }
 
   .tag {
     display: inline-block;
     padding: 0.375rem 0.875rem;
-    background-color: var(--color-navy-light);
-    color: var(--color-navy);
+    background-color: var(--color-bg-2);
+    color: var(--color-text-muted);
+    border: 1px solid rgba(226, 232, 244, 0.12);
     border-radius: 2rem;
     font-size: 0.875rem;
     font-weight: 500;
@@ -213,18 +195,17 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
   }
 
   .perfil__bio {
-    color: var(--color-text);
-    line-height: 1.75;
+    color: var(--color-text-muted);
+    line-height: 1.78;
     margin-bottom: 1rem;
     font-size: 1.0625rem;
   }
 
-  /* Modalidades */
   .modalidades { margin: 1.75rem 0 2rem; }
 
   .modalidades h3 {
     font-size: 1rem;
-    color: var(--color-navy);
+    color: var(--color-text);
     margin-bottom: 0.875rem;
     font-family: var(--font-body);
     font-weight: 600;
@@ -241,21 +222,10 @@ const fotoPlaceholder = 'https://images.unsplash.com/photo-1622253692010-333f2da
     align-items: center;
     gap: 0.625rem;
     font-size: 0.9375rem;
-    color: var(--color-text);
+    color: var(--color-text-muted);
   }
 
-  .modalidades__list svg { color: var(--color-navy); flex-shrink: 0; }
-
-  .btn-primary {
-    display: inline-block;
-    padding: 0.8125rem 2rem;
-    background-color: var(--color-gold);
-    color: var(--color-white);
-    font-weight: 600;
-    border-radius: var(--radius-md);
-    transition: background-color 0.2s, transform 0.15s;
-  }
-  .btn-primary:hover { background-color: var(--color-navy); transform: translateY(-2px); }
+  .modalidades__list svg { color: var(--color-electric); flex-shrink: 0; }
 
   /* Responsive */
   @media (max-width: 900px) {

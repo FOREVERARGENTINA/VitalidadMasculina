@@ -13,7 +13,10 @@
       "Bash(tail:*)",
       "Bash(ls:*)",
       "Bash(grep:*)",
-      "Bash(tail:*2)"
+      "Bash(cd:*)",
+      "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && npm run build 2>&1)",
+      "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && npx astro check 2>&1)",
+      "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && git push origin main 2>&1)"
     ]
   }
 }

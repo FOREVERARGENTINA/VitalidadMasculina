@@ -41,7 +41,7 @@
 <style>
   .hero {
     position: relative;
-    min-height: 80svh;
+    min-height: 62svh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -74,17 +74,43 @@
     z-index: 1;
     max-width: 1240px;
     margin: 0 auto;
-    padding: 5rem 1.75rem;
+    padding: 4rem 1.75rem;
     width: 100%;
+  }
+
+  /* ── Animaciones de entrada ────────────────────────────────── */
+  @keyframes hero-line-grow {
+    from { width: 0; opacity: 0; }
+    to   { width: 80px; opacity: 1; }
+  }
+
+  @keyframes hero-fade-up {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes cta-pulse {
+    0%, 100% {
+      box-shadow:
+        0 8px 20px rgba(201, 168, 76, 0.28),
+        0 0 0 0 rgba(201, 168, 76, 0);
+    }
+    50% {
+      box-shadow:
+        0 8px 28px rgba(201, 168, 76, 0.42),
+        0 0 0 7px rgba(201, 168, 76, 0.07);
+    }
   }
 
   /* Línea decorativa eléctrica */
   .hero-line {
     width: 80px;
     height: 2px;
-    background: var(--color-electric);
+    background: rgba(63, 135, 214, 0.72);
     margin-bottom: 1.5rem;
-    box-shadow: 0 0 12px rgba(74, 158, 255, 0.6);
+    box-shadow: 0 0 6px rgba(63, 135, 214, 0.22);
+    animation: hero-line-grow 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.05s;
   }
 
   .hero-eyebrow {
@@ -95,6 +121,8 @@
     letter-spacing: 0.14em;
     color: var(--color-gold-light);
     margin-bottom: 1.1rem;
+    animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.22s;
   }
 
   .hero-title {
@@ -104,8 +132,10 @@
     color: var(--color-white);
     line-height: 1.05;
     letter-spacing: 0.01em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     max-width: 620px;
+    animation: hero-fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.38s;
   }
 
   .hero-title--accent {
@@ -117,14 +147,18 @@
     color: rgba(255, 255, 255, 0.78);
     line-height: 1.72;
     max-width: 520px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    animation: hero-fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.58s;
   }
 
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.875rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.76s;
   }
 
   .btn {
@@ -145,12 +179,15 @@
     background-color: var(--color-gold);
     color: var(--color-bg-hero);
     box-shadow: 0 8px 20px rgba(201, 168, 76, 0.28);
+    animation: cta-pulse 3s ease-in-out infinite;
+    animation-delay: 1.6s;
   }
 
   .btn--primary:hover {
     background-color: var(--color-gold-hover);
     transform: translateY(-2px);
-    box-shadow: 0 0 28px rgba(74, 158, 255, 0.45), 0 10px 24px rgba(201, 168, 76, 0.2);
+    box-shadow: 0 10px 24px rgba(201, 168, 76, 0.38);
+    animation-play-state: paused;
   }
 
   .btn--outline {
@@ -160,8 +197,8 @@
   }
 
   .btn--outline:hover {
-    border-color: rgba(74, 158, 255, 0.7);
-    background-color: rgba(74, 158, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.58);
+    background-color: rgba(255, 255, 255, 0.06);
     transform: translateY(-2px);
   }
 
@@ -176,10 +213,12 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.55);
+    animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: 0.92s;
   }
 
   .trust-sep {
-    color: var(--color-electric);
+    color: var(--color-gold-light);
     opacity: 0.6;
   }
 
@@ -191,11 +230,11 @@
 
   @media (max-width: 600px) {
     .hero {
-      min-height: 72svh;
+      min-height: 54svh;
     }
 
     .hero-content {
-      padding: 3rem 1rem 3.5rem;
+      padding: 2.4rem 1rem 2.8rem;
     }
 
     .btn {

@@ -4,146 +4,273 @@ interface Props {
   description: string;
   href: string;
   icon?: 'heart' | 'clock' | 'flame' | 'activity' | 'shield';
+  index?: number;
 }
 
-const { title, description, href, icon = 'heart' } = Astro.props;
+const { title, description, href, icon = 'heart', index } = Astro.props;
 
 const icons = {
-  heart: `<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>`,
-  clock: `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>`,
-  flame: `<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>`,
+  heart:    `<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>`,
+  clock:    `<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>`,
+  flame:    `<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>`,
   activity: `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>`,
-  shield: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+  shield:   `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
 };
+
+const numLabel = index !== undefined ? String(index).padStart(2, '0') : null;
 ---
 
 <article class="service-card reveal">
   <a href={href} class="service-card__link" aria-label={`Ver más sobre ${title}`}>
-    <div class="service-card__icon" aria-hidden="true">
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.75"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <Fragment set:html={icons[icon]} />
-      </svg>
+
+    <!-- Glow de fondo — visible en hover -->
+    <div class="service-card__glow" aria-hidden="true"></div>
+
+    <!-- Fila superior: ícono + número -->
+    <div class="service-card__top">
+      <div class="service-card__icon" aria-hidden="true">
+        <svg
+          width="26"
+          height="26"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <Fragment set:html={icons[icon]} />
+        </svg>
+      </div>
+
+      {numLabel && (
+        <span class="service-card__num" aria-hidden="true">{numLabel}</span>
+      )}
     </div>
 
+    <!-- Contenido -->
     <h3 class="service-card__title">{title}</h3>
     <p class="service-card__desc">{description}</p>
 
+    <!-- CTA -->
     <span class="service-card__cta">
-      Ver tratamiento
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-      </svg>
+      <span class="service-card__cta-text">Ver tratamiento</span>
+      <span class="service-card__cta-arrow" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </span>
     </span>
+
   </a>
+
+  <!-- Línea gold inferior animada -->
+  <div class="service-card__line" aria-hidden="true"></div>
 </article>
 
 <style>
+  /* ── Card shell ───────────────────────────────────────────── */
   .service-card {
     position: relative;
-    background: rgba(13, 29, 53, 0.75);
+    background: rgba(10, 14, 26, 0.72);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(74, 158, 255, 0.15);
-    box-shadow: 0 8px 24px rgba(4, 9, 23, 0.45);
+    border: 1px solid rgba(226, 232, 244, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     height: 100%;
   }
 
   .service-card:hover {
-    border-color: rgba(74, 158, 255, 0.5);
+    background: rgba(10, 14, 26, 0.88);
+    border-color: rgba(201, 168, 76, 0.3);
     box-shadow:
-      0 0 0 1px rgba(74, 158, 255, 0.25),
-      0 24px 48px rgba(4, 9, 23, 0.6),
-      0 0 40px rgba(74, 158, 255, 0.06);
-    transform: translateY(-4px);
+      0 0 0 1px rgba(201, 168, 76, 0.14),
+      0 24px 56px rgba(0, 0, 0, 0.52),
+      0 0 40px rgba(201, 168, 76, 0.06);
+    transform: translateY(-5px);
   }
 
+  /* ── Link wrapper ─────────────────────────────────────────── */
   .service-card__link {
+    position: relative;
     display: flex;
     flex-direction: column;
-    padding: 1.75rem;
-    min-height: 100%;
+    padding: 1.75rem 1.75rem 1.5rem;
     height: 100%;
     color: inherit;
     overflow: hidden;
-  }
-
-  .service-card__link:focus-visible {
-    outline: 2px solid rgba(74, 158, 255, 0.6);
-    outline-offset: -2px;
     border-radius: var(--radius-lg);
   }
 
+  .service-card__link:focus-visible {
+    outline: 2px solid rgba(201, 168, 76, 0.5);
+    outline-offset: -2px;
+  }
+
+  /* ── Glow de fondo ────────────────────────────────────────── */
+  .service-card__glow {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.09) 0%, transparent 65%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .service-card:hover .service-card__glow {
+    opacity: 1;
+  }
+
+  /* ── Línea gold inferior ──────────────────────────────────── */
+  .service-card__line {
+    position: absolute;
+    bottom: 0;
+    left: 1.75rem;
+    right: 1.75rem;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .service-card:hover .service-card__line {
+    transform: scaleX(1);
+  }
+
+  /* ── Fila superior ────────────────────────────────────────── */
+  .service-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.35rem;
+  }
+
+  /* ── Ícono ────────────────────────────────────────────────── */
   .service-card__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 52px;
-    height: 52px;
-    background: var(--color-electric-dim);
-    border: 1px solid rgba(74, 158, 255, 0.2);
-    color: var(--color-electric);
-    border-radius: var(--radius-md);
-    margin-bottom: 1.25rem;
-    transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    width: 54px;
+    height: 54px;
+    background: rgba(226, 232, 244, 0.05);
+    border: 1px solid rgba(226, 232, 244, 0.14);
+    color: rgba(226, 232, 244, 0.55);
+    border-radius: 14px;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    flex-shrink: 0;
   }
 
   .service-card:hover .service-card__icon {
-    background: rgba(74, 158, 255, 0.18);
-    border-color: rgba(74, 158, 255, 0.45);
-    box-shadow: 0 0 16px rgba(74, 158, 255, 0.2);
-    color: var(--color-electric-light);
+    background: rgba(201, 168, 76, 0.12);
+    border-color: rgba(201, 168, 76, 0.32);
+    color: var(--color-gold);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.14);
   }
 
+  /* ── Número índice ────────────────────────────────────────── */
+  .service-card__num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(201, 168, 76, 0.1);
+    letter-spacing: -0.04em;
+    user-select: none;
+    transition: color 0.3s;
+  }
+
+  .service-card:hover .service-card__num {
+    color: rgba(201, 168, 76, 0.22);
+  }
+
+  /* ── Título ───────────────────────────────────────────────── */
   .service-card__title {
     font-family: var(--font-heading);
-    font-size: 1.22rem;
+    font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.01em;
     color: var(--color-text);
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
+    margin-bottom: 0.7rem;
+    line-height: 1.25;
+    transition: color 0.2s;
   }
 
+  .service-card:hover .service-card__title {
+    color: var(--color-white);
+  }
+
+  /* ── Descripción ──────────────────────────────────────────── */
   .service-card__desc {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
-    line-height: 1.65;
+    line-height: 1.7;
     flex: 1;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
+  /* ── CTA ──────────────────────────────────────────────────── */
   .service-card__cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.82rem;
+    gap: 0;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-electric);
-    opacity: 0.75;
-    transition: gap 0.15s, opacity 0.15s;
+    color: rgba(226, 232, 244, 0.35);
+    transition: color 0.25s;
   }
 
   .service-card:hover .service-card__cta {
-    gap: 0.58rem;
-    opacity: 1;
+    color: var(--color-gold);
   }
 
+  .service-card__cta-text {
+    position: relative;
+  }
+
+  /* Underline que crece en hover */
+  .service-card__cta-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .service-card:hover .service-card__cta-text::after {
+    transform: scaleX(1);
+  }
+
+  .service-card__cta-arrow {
+    display: flex;
+    align-items: center;
+    margin-left: 0.45rem;
+    transform: translateX(0);
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .service-card:hover .service-card__cta-arrow {
+    transform: translateX(5px);
+  }
+
+  /* ── Responsive ───────────────────────────────────────────── */
   @media (max-width: 640px) {
     .service-card__link {
-      padding: 1.35rem;
+      padding: 1.4rem 1.4rem 1.25rem;
     }
   }
 </style>

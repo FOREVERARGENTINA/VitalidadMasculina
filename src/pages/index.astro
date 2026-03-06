@@ -95,11 +95,6 @@ const services = [
             Abordaje integral de la salud masculina con diagnóstico personalizado
             y tratamientos basados en evidencia científica.
           </p>
-          <ul class="service-trust" role="list" aria-label="Diferenciales de atencion">
-            <li>Atencion presencial y videoconsulta</li>
-            <li>Enfoque medico basado en evidencia</li>
-            <li>Seguimiento personalizado del tratamiento</li>
-          </ul>
         </header>
 
         <div class="services-grid">
@@ -110,6 +105,7 @@ const services = [
                 description={s.description}
                 href={s.href}
                 icon={s.icon}
+                index={i + 1}
               />
             </div>
           ))}
@@ -117,15 +113,14 @@ const services = [
       </div>
     </section>
 
-    <!-- ── Sobre el Dr. ───────────────────────────────────────── -->
+    <!-- ── Consultorio ────────────────────────────────────────── -->
     <section class="section section--navy" aria-labelledby="doctor-heading">
       <div class="container doctor-section">
         <div class="doctor-img-wrapper reveal">
-          <!-- TODO: reemplazar por foto profesional real cuando el cliente la provea -->
           <img
-            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80"
-            alt={`Retrato del ${MEDICO_NOMBRE}`}
-            width="500"
+            src="/images/consultorio.webp"
+            alt="Interior del consultorio de medicina masculina en Palermo"
+            width="800"
             height="600"
             loading="lazy"
             class="doctor-img"
@@ -133,16 +128,12 @@ const services = [
         </div>
 
         <div class="doctor-content reveal">
-          <p class="section-eyebrow section-eyebrow--gold">Sobre el especialista</p>
-          <h2 id="doctor-heading">{MEDICO_NOMBRE}</h2>
-          <p class="doctor-specialty">
-            <!-- TODO: completar con especialidad cuando el cliente la provea -->
-            Especialista en Salud Masculina · {CONSULTORIO_ZONA}
-          </p>
+          <p class="section-eyebrow section-eyebrow--gold">El consultorio</p>
+          <h2 id="doctor-heading">Atención médica en un entorno reservado</h2>
           <p class="doctor-bio">
-            Atención personalizada con un enfoque que integra la salud física,
-            hormonal y emocional del paciente. Consultas presenciales en Zona Palermo
-            y por videollamada para toda Argentina.
+            Un espacio diseñado para la confianza y la privacidad. Cada consulta es
+            personalizada, sin apuros ni tiempos de espera. El objetivo es escuchar,
+            diagnosticar con rigor y acompañar el tratamiento de cerca.
           </p>
 
           <ul class="doctor-features" role="list">
@@ -152,11 +143,11 @@ const services = [
             </li>
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Atención presencial y por videollamada
+              Presencial en Palermo · Videollamada en todo el país
             </li>
             <li>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-              Solo particular — sin tiempos de espera
+              Atención exclusiva — sin tiempos de espera
             </li>
           </ul>
 
@@ -224,6 +215,58 @@ const services = [
   <Footer />
 </Base>
 
+<script>
+  // ── Stats counter ─────────────────────────────────────────
+  // Cuenta desde 0 hasta el valor final cuando la sección entra en viewport.
+  // Detecta prefijo/sufijo (ej: "500+", "100%", "∞") y los preserva.
+
+  function easeOutQuart(t: number): number {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  function animateCounter(el: HTMLElement) {
+    const raw = el.textContent?.trim() ?? '';
+
+    // "∞" no tiene número — skip
+    if (raw === '∞') return;
+
+    // Extraer número y sufijo: "500+" → { value: 500, suffix: '+' }
+    const match = raw.match(/^(\d+)(.*)$/);
+    if (!match) return;
+
+    const target = parseInt(match[1], 10);
+    const suffix = match[2] ?? '';
+    const duration = 1400; // ms
+    const start = performance.now();
+
+    function tick(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.round(easeOutQuart(progress) * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  const statsSection = document.querySelector('.section-stats');
+  if (statsSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            document.querySelectorAll<HTMLElement>('.stat-number').forEach(animateCounter);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(statsSection);
+  }
+</script>
+
 <style>
   /* ── Utilidades de sección ──────────────────────────────────── */
   .section {
@@ -238,7 +281,7 @@ const services = [
     position: relative;
     isolation: isolate;
     background:
-      radial-gradient(900px 400px at 10% -10%, rgba(74, 158, 255, 0.08), transparent 55%),
+      radial-gradient(900px 400px at 10% -10%, rgba(63, 135, 214, 0.04), transparent 55%),
       radial-gradient(700px 320px at 88% 108%, rgba(201, 168, 76, 0.10), transparent 58%),
       linear-gradient(135deg, var(--color-bg-hero) 0%, var(--color-bg) 60%, var(--color-bg-2) 100%);
   }
@@ -251,8 +294,8 @@ const services = [
     background:
       repeating-linear-gradient(
         -45deg,
-        rgba(74, 158, 255, 0.025) 0px,
-        rgba(74, 158, 255, 0.025) 1px,
+        rgba(226, 232, 244, 0.012) 0px,
+        rgba(226, 232, 244, 0.012) 1px,
         transparent 1px,
         transparent 18px
       );
@@ -315,8 +358,8 @@ const services = [
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    background: rgba(74, 158, 255, 0.06);
-    border: 1px solid rgba(74, 158, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(226, 232, 244, 0.14);
     border-radius: 999px;
     padding: 0.48rem 0.82rem;
   }
@@ -357,8 +400,9 @@ const services = [
 
   .doctor-img {
     width: 100%;
-    aspect-ratio: 5 / 6;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
+    object-position: center;
     border-radius: var(--radius-lg);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
   }
@@ -443,8 +487,8 @@ const services = [
   .btn-outline-navy {
     display: inline-block;
     padding: 0.84rem 1.8rem;
-    border: 1px solid rgba(74, 158, 255, 0.35);
-    color: var(--color-electric);
+    border: 1px solid rgba(226, 232, 244, 0.28);
+    color: var(--color-text);
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -453,15 +497,16 @@ const services = [
   }
 
   .btn-outline-navy:hover {
-    background-color: rgba(74, 158, 255, 0.08);
-    border-color: rgba(74, 158, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(201, 168, 76, 0.45);
+    color: var(--color-gold-light);
     transform: translateY(-2px);
   }
 
   /* ── CTA final ───────────────────────────────────────────────── */
   .cta-final {
     background:
-      radial-gradient(ellipse at 15% 50%, rgba(74, 158, 255, 0.12), transparent 55%),
+      radial-gradient(ellipse at 15% 50%, rgba(63, 135, 214, 0.06), transparent 55%),
       radial-gradient(ellipse at 85% 40%, rgba(201, 168, 76, 0.10), transparent 55%),
       var(--color-bg-hero);
   }
@@ -552,8 +597,8 @@ const services = [
   .section-stats {
     background: var(--color-bg-hero);
     padding: 3.5rem 1.75rem;
-    border-top: 1px solid rgba(74, 158, 255, 0.08);
-    border-bottom: 1px solid rgba(74, 158, 255, 0.08);
+    border-top: 1px solid rgba(226, 232, 244, 0.1);
+    border-bottom: 1px solid rgba(226, 232, 244, 0.1);
   }
 
   .stats-container {
@@ -594,7 +639,7 @@ const services = [
   .stat-divider {
     width: 1px;
     height: 3.5rem;
-    background: rgba(74, 158, 255, 0.18);
+    background: rgba(226, 232, 244, 0.16);
     flex-shrink: 0;
   }
 
@@ -607,4 +652,3 @@ const services = [
     .stat-divider { display: none; }
   }
 </style>
-

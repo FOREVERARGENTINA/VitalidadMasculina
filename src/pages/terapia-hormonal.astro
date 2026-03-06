@@ -133,31 +133,13 @@ import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astr
 </Page>
 
 <style>
-  .page-hero { background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%); padding: 3.5rem 0 3rem; color: var(--color-white); }
-  .page-hero h1 { font-size: clamp(2rem, 4vw, 2.75rem); color: var(--color-white); margin: 0.75rem 0 1rem; }
-  .page-hero__lead { font-size: 1.125rem; color: rgba(255,255,255,0.85); max-width: 600px; line-height: 1.6; font-style: italic; border-left: 3px solid var(--color-gold); padding-left: 1rem; }
-  .breadcrumb ol { display: flex; gap: 0.5rem; font-size: 0.8125rem; color: rgba(255,255,255,0.55); margin-bottom: 0.5rem; }
-  .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
-  .breadcrumb a { color: rgba(255,255,255,0.7); transition: color 0.15s; }
-  .breadcrumb a:hover { color: var(--color-gold); }
-  .page-content { padding: 3.5rem 0 4rem; }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-  .container--narrow { max-width: 780px; }
-  .content-section { margin-bottom: 2.5rem; }
-  .content-section h2 { font-size: 1.5rem; color: var(--color-navy); margin-bottom: 0.875rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--color-navy-light); }
-  .content-section h3 { font-size: 1.1rem; color: var(--color-navy); margin: 1.25rem 0 0.5rem; }
-  .content-section p { color: var(--color-text); line-height: 1.75; margin-bottom: 0.875rem; }
-  .content-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.875rem; }
-  .content-list li { display: flex; align-items: flex-start; gap: 0.625rem; color: var(--color-text); line-height: 1.55; font-size: 0.9375rem; }
-  .content-list li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background-color: var(--color-gold); margin-top: 0.55em; }
-
   /* Procedimiento */
   .procedure-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1px;
-    background-color: var(--color-navy-light);
-    border: 1px solid var(--color-navy-light);
+    background-color: rgba(226, 232, 244, 0.06);
+    border: 1px solid rgba(226, 232, 244, 0.1);
     border-radius: var(--radius-md);
     overflow: hidden;
     margin-bottom: 1.25rem;
@@ -167,7 +149,7 @@ import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astr
     flex-direction: column;
     gap: 0.25rem;
     padding: 1rem 1.25rem;
-    background-color: var(--color-white);
+    background-color: var(--color-bg-2);
   }
   .procedure-detail__label {
     font-size: 0.75rem;
@@ -179,15 +161,9 @@ import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astr
   .procedure-detail__value {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--color-navy);
+    color: var(--color-text);
     font-family: var(--font-heading);
   }
-
-  .page-cta { margin-top: 3rem; padding: 2.5rem; background-color: var(--color-navy-light); border-radius: var(--radius-lg); text-align: center; }
-  .page-cta h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-  .page-cta p { color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: 0.9375rem; }
-  .btn-primary { display: inline-block; padding: 0.8125rem 2rem; background-color: var(--color-gold); color: var(--color-white); font-weight: 600; border-radius: var(--radius-md); transition: background-color 0.2s, transform 0.15s; }
-  .btn-primary:hover { background-color: var(--color-navy); transform: translateY(-2px); }
 
   @media (max-width: 480px) {
     .procedure-card { grid-template-columns: 1fr; }

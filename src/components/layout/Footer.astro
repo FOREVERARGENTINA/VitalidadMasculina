@@ -22,30 +22,45 @@ const services = [
 ---
 
 <footer class="site-footer">
+
+  <!-- Línea gold superior -->
+  <div class="footer-top-line" aria-hidden="true"></div>
+
   <div class="footer-inner">
 
     <!-- Columna 1: Logo + descripción -->
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label={`${SITE_NAME} — Inicio`}>
-        <!-- TODO: reemplazar con SVG del logo cuando esté disponible -->
-        <span class="footer-logo-mark" aria-hidden="true">VM</span>
+        <img
+          src="/images/logotipo.png"
+          alt="Logo Vitalidad Masculina"
+          class="footer-logo-img"
+          width="52"
+          height="52"
+          loading="lazy"
+          decoding="async"
+        />
         <span class="footer-logo-text">{SITE_NAME}</span>
       </a>
+
+      <p class="footer-tagline">Medicina masculina de precisión</p>
+
       <p class="footer-desc">
-        Consultas especializadas en salud masculina.<br />
-        Atención presencial y por videollamada.
+        Diagnóstico integral y tratamiento personalizado en salud masculina.
+        Atención presencial en Palermo y videoconsulta para toda Argentina.
       </p>
+
       <p class="footer-location">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
         </svg>
         {CONSULTORIO_ZONA}
       </p>
     </div>
 
-    <!-- Columna 2: Servicios -->
-    <nav aria-label="Servicios">
-      <h3 class="footer-heading">Servicios</h3>
+    <!-- Columna 2: Especialidades -->
+    <nav aria-label="Especialidades">
+      <h3 class="footer-heading">Especialidades</h3>
       <ul role="list">
         {services.map(s => (
           <li><a href={s.href} class="footer-link">{s.label}</a></li>
@@ -54,13 +69,13 @@ const services = [
     </nav>
 
     <!-- Columna 3: Navegación -->
-    <nav aria-label="Páginas">
+    <nav aria-label="Navegación">
       <h3 class="footer-heading">Navegación</h3>
       <ul role="list">
         <li><a href="/" class="footer-link">Inicio</a></li>
-        <li><a href="/sobre-mi" class="footer-link">Sobre mí</a></li>
-        <li><a href="/blog" class="footer-link">Blog</a></li>
-        <li><a href="/contacto" class="footer-link">Contacto</a></li>
+        <li><a href="/sobre-mi" class="footer-link">Sobre el Dr. Mateu</a></li>
+        <li><a href="/blog" class="footer-link">Blog de salud</a></li>
+        <li><a href="/contacto" class="footer-link">Solicitar consulta</a></li>
       </ul>
     </nav>
 
@@ -73,12 +88,11 @@ const services = [
             <li>
               <a
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                class="footer-link footer-link--contact"
+                class="footer-link footer-link--icon"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
                 </svg>
                 WhatsApp
@@ -86,18 +100,15 @@ const services = [
             </li>
           )
           : (
-            <li class="footer-placeholder">
-              <!-- TODO: WhatsApp pendiente del cliente -->
-              WhatsApp: pendiente
-            </li>
+            <li class="footer-pending">WhatsApp: pendiente<!-- TODO: completar --></li>
           )
         }
 
         {CONTACT_EMAIL
           ? (
             <li>
-              <a href={`mailto:${CONTACT_EMAIL}`} class="footer-link footer-link--contact" aria-label="Email">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <a href={`mailto:${CONTACT_EMAIL}`} class="footer-link footer-link--icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/>
                 </svg>
                 Email
@@ -105,200 +116,277 @@ const services = [
             </li>
           )
           : (
-            <li class="footer-placeholder">
-              <!-- TODO: Email pendiente del cliente -->
-              Email: pendiente
-            </li>
+            <li class="footer-pending">Email: pendiente<!-- TODO: completar --></li>
           )
         }
 
-        <!-- Instagram -->
         <li>
           <a
             href={INSTAGRAM_URL || '#'}
-            class="footer-link footer-link--contact"
+            class="footer-link footer-link--icon"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
             </svg>
             Instagram
-            {!INSTAGRAM_URL && <span class="visually-hidden">(pendiente)</span>}
           </a>
         </li>
       </ul>
+
+      <!-- CTA consulta -->
+      <a href="/contacto" class="footer-cta">
+        Solicitar consulta
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
     </div>
+
   </div>
 
   <!-- Barra inferior -->
   <div class="footer-bottom">
-    <p>
-      &copy; {year} {SITE_NAME} · {MEDICO_NOMBRE} · Todos los derechos reservados.
-    </p>
-    <p class="footer-dev">
-      Sitio desarrollado por
-      <a href={DEVELOPER_URL} target="_blank" rel="noopener noreferrer">{DEVELOPER_NAME}</a>.
-    </p>
-    <p class="footer-legal">
-      Este sitio tiene fines informativos y no reemplaza la consulta médica profesional.
-    </p>
+    <div class="footer-bottom__inner">
+      <p class="footer-copy">
+        &copy; {year} {SITE_NAME} &middot; {MEDICO_NOMBRE}
+      </p>
+      <p class="footer-legal">
+        Sitio de carácter informativo. No reemplaza la consulta médica.
+      </p>
+      <p class="footer-dev">
+        Desarrollado por
+        <a href={DEVELOPER_URL} target="_blank" rel="noopener noreferrer">{DEVELOPER_NAME}</a>
+      </p>
+    </div>
   </div>
+
 </footer>
 
 <style>
+  /* ── Footer shell ─────────────────────────────────────────── */
   .site-footer {
-    background-color: var(--color-navy-dark);
-    color: var(--color-white);
+    position: relative;
+    background-color: var(--color-bg-hero);
+    color: var(--color-text);
     margin-top: auto;
   }
 
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 2rem;
+  /* Línea gold difuminada en el borde superior */
+  .footer-top-line {
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(201, 168, 76, 0.25) 30%,
+      rgba(201, 168, 76, 0.45) 50%,
+      rgba(201, 168, 76, 0.25) 70%,
+      transparent 100%
+    );
   }
 
-  /* Logo */
+  /* ── Grid interior ───────────────────────────────────────── */
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    gap: 3.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  /* ── Brand ───────────────────────────────────────────────── */
   .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.65rem;
     margin-bottom: 1rem;
   }
 
-  .footer-logo-mark {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--color-gold);
-    color: var(--color-navy-dark);
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.8rem;
-    border-radius: var(--radius-sm);
+  .footer-logo-img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   .footer-logo-text {
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--color-white);
+    color: var(--color-text);
+    letter-spacing: 0.01em;
+  }
+
+  .footer-tagline {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-gold);
+    margin-bottom: 0.875rem;
   }
 
   .footer-desc {
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.875rem;
+    max-width: 280px;
   }
 
   .footer-location {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.55);
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: rgba(226, 232, 244, 0.35);
   }
 
-  /* Headings */
+  /* ── Column headings ─────────────────────────────────────── */
   .footer-heading {
     font-family: var(--font-body);
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.14em;
     color: var(--color-gold);
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
   }
 
-  /* Links */
+  /* ── Links ───────────────────────────────────────────────── */
   ul {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.55rem;
   }
 
   .footer-link {
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-text-muted);
     transition: color 0.15s;
   }
 
   .footer-link:hover {
-    color: var(--color-gold);
+    color: var(--color-text);
   }
 
-  .footer-link--contact {
+  .footer-link--icon {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
+    gap: 0.45rem;
   }
 
-  .footer-placeholder {
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.35);
+  .footer-link--icon svg {
+    opacity: 0.55;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+
+  .footer-link--icon:hover svg {
+    opacity: 1;
+  }
+
+  .footer-pending {
+    font-size: 0.8rem;
+    color: rgba(226, 232, 244, 0.22);
     font-style: italic;
   }
 
-  /* Bottom bar */
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.25rem 1.5rem;
-    text-align: center;
+  /* ── CTA dentro de contacto ──────────────────────────────── */
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.5rem;
+    padding: 0.6rem 1.1rem;
+    background: transparent;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-radius: 999px;
+    color: var(--color-gold);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
   }
 
-  .footer-bottom p {
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.45);
-    line-height: 1.5;
+  .footer-cta:hover {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--color-bg-hero);
+  }
+
+  /* ── Bottom bar ──────────────────────────────────────────── */
+  .footer-bottom {
+    border-top: 1px solid rgba(226, 232, 244, 0.06);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .footer-bottom__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: rgba(226, 232, 244, 0.4);
+  }
+
+  .footer-legal {
+    font-size: 0.75rem;
+    color: rgba(226, 232, 244, 0.25);
+    flex: 1;
+  }
+
+  .footer-dev {
+    font-size: 0.78rem;
+    color: rgba(226, 232, 244, 0.3);
+    margin-left: auto;
   }
 
   .footer-dev a {
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(226, 232, 244, 0.55);
     text-decoration: underline;
     text-underline-offset: 2px;
+    transition: color 0.15s;
   }
 
   .footer-dev a:hover {
     color: var(--color-gold);
   }
 
-  .footer-legal {
-    margin-top: 0.25rem;
-    font-size: 0.75rem !important;
-  }
-
-  /* Accesibilidad */
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
+  /* ── Responsive ──────────────────────────────────────────── */
+  @media (max-width: 960px) {
     .footer-inner {
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 2.5rem;
     }
     .footer-brand {
       grid-column: 1 / -1;
     }
+    .footer-desc {
+      max-width: 100%;
+    }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 540px) {
     .footer-inner {
       grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2.5rem 1.25rem 2rem;
+    }
+    .footer-bottom__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+    .footer-dev {
+      margin-left: 0;
     }
   }
 </style>

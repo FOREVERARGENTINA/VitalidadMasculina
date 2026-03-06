@@ -4,29 +4,30 @@
    ============================================================= */
 
 /* -------------------------------------------------------------
-   Reveal al hacer scroll — fade-in + translateY
-   Usar clase .reveal en imágenes de servicios, blog cards,
-   secciones secundarias del homepage
+   Reveal al hacer scroll — fade-in + translateY + scale sutil
+   Usar clase .reveal en service cards, blog cards, secciones
    ------------------------------------------------------------- */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  animation: reveal-fade linear both;
+  transform: translateY(48px) scale(0.97);
+  animation: reveal-fade 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-timeline: view();
-  animation-range: entry 0% entry 40%;
+  animation-range: entry 0% entry 45%;
 }
 
 @keyframes reveal-fade {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* Stagger para grillas (blog cards, service cards) */
-.reveal:nth-child(2) { animation-delay: 0.1s; }
-.reveal:nth-child(3) { animation-delay: 0.2s; }
-.reveal:nth-child(4) { animation-delay: 0.3s; }
+/* Stagger para grillas — hasta 6 hijos */
+.reveal:nth-child(2) { animation-delay: 0.08s; }
+.reveal:nth-child(3) { animation-delay: 0.16s; }
+.reveal:nth-child(4) { animation-delay: 0.24s; }
+.reveal:nth-child(5) { animation-delay: 0.32s; }
+.reveal:nth-child(6) { animation-delay: 0.40s; }
 
 /* -------------------------------------------------------------
    Header scroll shadow — aparece al bajar el scroll
@@ -73,8 +74,8 @@
 
   @keyframes header-compact-logo {
     to {
-      width: 4.5rem;
-      height: 4.5rem;
+      width: 3rem;
+      height: 3rem;
     }
   }
 

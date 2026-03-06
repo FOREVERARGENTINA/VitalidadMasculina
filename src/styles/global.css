@@ -58,12 +58,12 @@
   --color-gold-light:   #d8bc6a;
   --color-gold-hover:   #dbb94f;
   --color-sand:         #D4B896;
-  --color-bg:           #0a1628;
-  --color-bg-2:         #0d1d35;
-  --color-bg-3:         #111e38;
-  --color-electric:     #4a9eff;
-  --color-electric-dim: rgba(74, 158, 255, 0.12);
-  --color-electric-light: #7db8ff;
+  --color-bg:           #0a1020;
+  --color-bg-2:         #0d1428;
+  --color-bg-3:         #101828;
+  --color-electric:     #3f87d6;
+  --color-electric-dim: rgba(63, 135, 214, 0.08);
+  --color-electric-light: #9bc4ea;
   --color-text:         #e2e8f4;
   --color-text-muted:   #7a9bb5;
   --color-white:        #FFFFFF;
@@ -137,4 +137,3 @@ button {
   background: none;
   font-family: inherit;
 }
-
