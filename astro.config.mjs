@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.vitalidadmasculina.com.ar',
+  site: 'https://vitalidad-masculina.pages.dev',
   output: 'static',
   integrations: [
     tailwind(),
