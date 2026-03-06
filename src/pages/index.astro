@@ -64,23 +64,23 @@ const services = [
       <!-- TODO: verificar estos valores con el Dr. Mateu antes del lanzamiento (años en ejercicio, pacientes atendidos) -->
       <dl class="stats-container">
         <div class="stat-item reveal">
-          <dd class="stat-number">10+</dd>
           <dt class="stat-label">Años en ejercicio</dt>
+          <dd class="stat-number">10+</dd>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat-item reveal">
-          <dd class="stat-number">500+</dd>
           <dt class="stat-label">Pacientes atendidos</dt>
+          <dd class="stat-number">500+</dd>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat-item reveal">
-          <dd class="stat-number">100%</dd>
           <dt class="stat-label">Privado y confidencial</dt>
+          <dd class="stat-number">100%</dd>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat-item reveal">
-          <dd class="stat-number">∞</dd>
           <dt class="stat-label">Disponible por video</dt>
+          <dd class="stat-number">∞</dd>
         </div>
       </dl>
     </section>
@@ -499,7 +499,7 @@ const services = [
   }
 
   .btn-primary-lg:hover {
-    background-color: #dbb94f;
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
     box-shadow: 0 0 32px rgba(201, 168, 76, 0.4), 0 10px 24px rgba(201, 168, 76, 0.2);
   }
@@ -567,7 +567,7 @@ const services = [
 
   .stat-item {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     text-align: center;
     flex: 1;
