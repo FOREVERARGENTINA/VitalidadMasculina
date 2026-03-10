@@ -72,10 +72,10 @@ const numLabel = index !== undefined ? String(index).padStart(2, '0') : null;
   /* ── Card shell ───────────────────────────────────────────── */
   .service-card {
     position: relative;
-    background: rgba(10, 14, 26, 0.72);
+    background: linear-gradient(160deg, rgba(255, 253, 248, 0.9), rgba(246, 238, 226, 0.94));
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(226, 232, 244, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 20px 40px rgba(26, 42, 94, 0.1);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
@@ -83,11 +83,11 @@ const numLabel = index !== undefined ? String(index).padStart(2, '0') : null;
   }
 
   .service-card:hover {
-    background: rgba(10, 14, 26, 0.88);
+    background: linear-gradient(160deg, rgba(255, 255, 252, 0.98), rgba(249, 242, 232, 0.98));
     border-color: rgba(201, 168, 76, 0.3);
     box-shadow:
       0 0 0 1px rgba(201, 168, 76, 0.14),
-      0 24px 56px rgba(0, 0, 0, 0.52),
+      0 24px 56px rgba(26, 42, 94, 0.16),
       0 0 40px rgba(201, 168, 76, 0.06);
     transform: translateY(-5px);
   }
@@ -160,9 +160,9 @@ const numLabel = index !== undefined ? String(index).padStart(2, '0') : null;
     justify-content: center;
     width: 54px;
     height: 54px;
-    background: rgba(226, 232, 244, 0.05);
-    border: 1px solid rgba(226, 232, 244, 0.14);
-    color: rgba(226, 232, 244, 0.55);
+    background: rgba(230, 236, 247, 0.7);
+    border: 1px solid rgba(32, 48, 79, 0.12);
+    color: rgba(32, 48, 79, 0.62);
     border-radius: 14px;
     transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
     flex-shrink: 0;
@@ -204,7 +204,7 @@ const numLabel = index !== undefined ? String(index).padStart(2, '0') : null;
   }
 
   .service-card:hover .service-card__title {
-    color: var(--color-white);
+    color: var(--color-navy-dark);
   }
 
   /* ── Descripción ──────────────────────────────────────────── */
@@ -225,7 +225,7 @@ const numLabel = index !== undefined ? String(index).padStart(2, '0') : null;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(226, 232, 244, 0.35);
+    color: rgba(32, 48, 79, 0.42);
     transition: color 0.25s;
   }
 

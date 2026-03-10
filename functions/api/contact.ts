@@ -1,5 +1,6 @@
 /// <reference types="@cloudflare/workers-types" />
 import { z } from 'zod';
+import { CONTACT_EMAIL } from '../../src/utils/constants';
 
 // ─── Schema (mismo que src/utils/contactSchema.ts) ───────────────────────────
 const motivoOptions = [
@@ -51,9 +52,10 @@ export const onRequestPost: PagesFunction<{
   CONTACT_EMAIL: string;
 }> = async (context) => {
   const { request, env } = context;
+  const destinationEmail = env.CONTACT_EMAIL || CONTACT_EMAIL;
 
   // 1. Verificar variables de entorno
-  if (!env.RESEND_API_KEY || !env.CONTACT_EMAIL) {
+  if (!env.RESEND_API_KEY || !destinationEmail) {
     console.error('[contact] Variables de entorno RESEND_API_KEY o CONTACT_EMAIL no configuradas');
     return json({ message: 'Error de configuración del servidor.' }, 500);
   }
@@ -105,8 +107,8 @@ export const onRequestPost: PagesFunction<{
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Vitalidad Masculina <formulario@vitalidadmasculina.com.ar>',
-        to: [env.CONTACT_EMAIL],
+        from: 'Vitalidad Masculina <onboarding@resend.dev>',
+        to: [destinationEmail],
         reply_to: email,
         subject: `Nueva consulta: ${motivo} — ${nombre}`,
         html: emailHtml,

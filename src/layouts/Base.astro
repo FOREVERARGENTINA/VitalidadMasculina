@@ -4,6 +4,7 @@ import {
   SITE_URL,
   MEDICO_NOMBRE,
   CONSULTORIO_ZONA,
+  WHATSAPP_NUMBER,
   DEVELOPER_NAME,
   DEVELOPER_URL,
 } from '../utils/constants';
@@ -41,7 +42,7 @@ const schemaOrg = {
   name: SITE_NAME,
   description: 'Consultas especializadas en salud masculina con el ' + MEDICO_NOMBRE,
   url: SITE_URL,
-  telephone: '', // TODO: completar con WHATSAPP_NUMBER cuando el cliente lo provea
+  telephone: WHATSAPP_NUMBER ? '+54 9 11 4096-9974' : '',
   address: {
     '@type': 'PostalAddress',
     addressLocality: CONSULTORIO_ZONA,

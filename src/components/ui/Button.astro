@@ -58,13 +58,13 @@ const Tag = href ? 'a' : 'button';
   /* Variants */
   .btn--primary {
     background-color: var(--color-gold);
-    color: var(--color-white);
+    color: var(--color-ink-on-accent);
     border-color: var(--color-gold);
     box-shadow: 0 2px 12px rgba(201, 168, 76, 0.3);
   }
   .btn--primary:hover {
-    background-color: #b8973a;
-    border-color: #b8973a;
+    background-color: var(--color-gold-hover);
+    border-color: var(--color-gold-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 18px rgba(201, 168, 76, 0.4);
   }
@@ -97,6 +97,6 @@ const Tag = href ? 'a' : 'button';
     border-color: transparent;
   }
   .btn--ghost:hover {
-    background-color: var(--color-navy-light);
+    background-color: color-mix(in srgb, var(--color-navy-light) 70%, var(--color-white));
   }
 </style>

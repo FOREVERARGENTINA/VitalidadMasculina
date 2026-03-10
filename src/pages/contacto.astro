@@ -235,6 +235,14 @@ const whatsappHref = WHATSAPP_NUMBER
   const errorBox  = document.getElementById('form-error') as HTMLDivElement;
   const errorMsg  = document.getElementById('form-error-msg') as HTMLParagraphElement;
 
+  function resetFeedback() {
+    success.hidden = true;
+    errorBox.hidden = true;
+    errorMsg.textContent = 'Ocurrió un error. Por favor intentá de nuevo o escribinos por WhatsApp.';
+  }
+
+  resetFeedback();
+
   // Limpiar error de un campo
   function clearError(name: string) {
     const el = document.getElementById(`error-${name}`);
@@ -280,6 +288,7 @@ const whatsappHref = WHATSAPP_NUMBER
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     clearAllErrors();
+    resetFeedback();
 
     const data = Object.fromEntries(new FormData(form));
     const result = contactSchema.safeParse(data);
@@ -300,7 +309,6 @@ const whatsappHref = WHATSAPP_NUMBER
     btnSubmit.disabled = true;
     btnText.hidden = true;
     btnLoad.hidden = false;
-    errorBox.hidden = true;
 
     try {
       const res = await fetch('/api/contact', {
@@ -336,22 +344,22 @@ const whatsappHref = WHATSAPP_NUMBER
   .page-hero {
     position: relative;
     background:
-      radial-gradient(1200px 280px at 12% -18%, rgba(201, 168, 76, 0.2), transparent 52%),
-      radial-gradient(900px 260px at 90% 0%, rgba(63, 135, 214, 0.14), transparent 48%),
-      linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
+      radial-gradient(1200px 280px at 12% -18%, rgba(201, 168, 76, 0.18), transparent 52%),
+      radial-gradient(900px 260px at 90% 0%, rgba(92, 132, 191, 0.14), transparent 48%),
+      linear-gradient(135deg, var(--color-bg-2) 0%, var(--color-bg-hero) 100%);
     padding: 3.5rem 0 3rem;
-    color: var(--color-white);
+    color: var(--color-text);
   }
 
   .page-hero h1 {
     font-size: clamp(2rem, 4vw, 2.75rem);
-    color: var(--color-white);
+    color: var(--color-navy-dark);
     margin: 0.75rem 0 1rem;
   }
 
   .page-hero__lead {
     font-size: 1.0625rem;
-    color: rgba(255, 255, 255, 0.88);
+    color: color-mix(in srgb, var(--color-text) 84%, var(--color-white));
     max-width: 540px;
     line-height: 1.65;
   }
@@ -360,7 +368,7 @@ const whatsappHref = WHATSAPP_NUMBER
     display: flex;
     gap: 0.5rem;
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.72);
+    color: color-mix(in srgb, var(--color-text-muted) 88%, var(--color-white));
     margin-bottom: 0.5rem;
   }
 
@@ -371,7 +379,7 @@ const whatsappHref = WHATSAPP_NUMBER
   }
 
   .breadcrumb a {
-    color: rgba(255, 255, 255, 0.86);
+    color: var(--color-text);
     transition: color 0.15s;
   }
 
@@ -406,7 +414,7 @@ const whatsappHref = WHATSAPP_NUMBER
   /* Side info */
   .contact-info h2 {
     font-size: 1.125rem;
-    color: var(--color-gold-light);
+    color: var(--color-gold);
     margin-bottom: 1.5rem;
     letter-spacing: 0.02em;
   }
@@ -416,10 +424,10 @@ const whatsappHref = WHATSAPP_NUMBER
     gap: 0.875rem;
     margin-bottom: 1.25rem;
     padding: 1.05rem;
-    background: linear-gradient(148deg, rgba(19, 29, 55, 0.96), rgba(12, 20, 40, 0.94));
-    border: 1px solid rgba(122, 155, 181, 0.22);
+    background: linear-gradient(148deg, rgba(255, 253, 248, 0.92), rgba(246, 238, 226, 0.96));
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 14px 32px rgba(26, 42, 94, 0.1);
   }
 
   .info-card__icon {
@@ -451,13 +459,13 @@ const whatsappHref = WHATSAPP_NUMBER
 
   .info-card p {
     font-size: 0.84rem;
-    color: rgba(226, 232, 244, 0.86);
+    color: var(--color-text);
     line-height: 1.45;
   }
 
   .info-note {
     font-style: italic;
-    color: rgba(155, 196, 234, 0.9);
+    color: var(--color-electric);
   }
 
   .wa-link {
@@ -471,12 +479,12 @@ const whatsappHref = WHATSAPP_NUMBER
   .contact-disclaimer {
     margin-top: 1.5rem;
     padding: 0.8rem 1rem;
-    background-color: rgba(88, 60, 12, 0.36);
-    border: 1px solid rgba(233, 183, 77, 0.45);
-    border-left: 3px solid rgba(233, 183, 77, 0.78);
+    background-color: rgba(233, 183, 77, 0.14);
+    border: 1px solid rgba(181, 141, 58, 0.26);
+    border-left: 3px solid rgba(181, 141, 58, 0.68);
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     font-size: 0.8rem;
-    color: #f6de9e;
+    color: #7a5a17;
     line-height: 1.55;
   }
 
@@ -490,7 +498,11 @@ const whatsappHref = WHATSAPP_NUMBER
     padding: 2.5rem 2rem;
     border-radius: var(--radius-lg);
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(122, 155, 181, 0.24);
+    border: 1px solid var(--color-border);
+  }
+
+  .form-feedback[hidden] {
+    display: none !important;
   }
 
   .form-feedback h3 {
@@ -499,42 +511,42 @@ const whatsappHref = WHATSAPP_NUMBER
 
   .form-feedback p {
     font-size: 0.9375rem;
-    color: rgba(226, 232, 244, 0.86);
+    color: var(--color-text);
   }
 
   .form-feedback--success {
-    background-color: rgba(25, 84, 56, 0.28);
-    color: #8ae1b1;
+    background-color: rgba(25, 84, 56, 0.12);
+    color: #2d7a52;
   }
 
   .form-feedback--success svg {
-    color: #69d89d;
+    color: #2d7a52;
   }
 
   .form-feedback--success h3 {
-    color: #8ae1b1;
+    color: #2d7a52;
   }
 
   .form-feedback--error {
-    background-color: rgba(134, 29, 45, 0.25);
-    color: #ffb8c1;
+    background-color: rgba(134, 29, 45, 0.1);
+    color: #a1475a;
   }
 
   .form-feedback--error svg {
-    color: #ff7f8f;
+    color: #a1475a;
   }
 
   .form-feedback--error h3 {
-    color: #ffb8c1;
+    color: #a1475a;
   }
 
   /* Form */
   .contact-form-wrapper {
-    background: linear-gradient(160deg, rgba(20, 30, 56, 0.94), rgba(11, 18, 36, 0.96));
+    background: linear-gradient(160deg, rgba(255, 253, 248, 0.94), rgba(246, 238, 226, 0.98));
     padding: 2.5rem;
     border-radius: var(--radius-lg);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
-    border: 1px solid rgba(122, 155, 181, 0.24);
+    box-shadow: 0 18px 44px rgba(26, 42, 94, 0.12);
+    border: 1px solid var(--color-border);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
@@ -564,7 +576,7 @@ const whatsappHref = WHATSAPP_NUMBER
   .field-hint {
     font-size: 0.75rem;
     font-weight: 400;
-    color: rgba(155, 196, 234, 0.86);
+    color: var(--color-electric);
   }
 
   input,
@@ -575,8 +587,8 @@ const whatsappHref = WHATSAPP_NUMBER
     font-family: var(--font-body);
     font-size: 0.95rem;
     color: var(--color-text);
-    background-color: rgba(7, 12, 26, 0.92);
-    border: 1.5px solid rgba(122, 155, 181, 0.38);
+    background-color: rgba(255, 255, 255, 0.76);
+    border: 1.5px solid rgba(32, 48, 79, 0.18);
     border-radius: var(--radius-md);
     transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
     outline: none;
@@ -584,11 +596,11 @@ const whatsappHref = WHATSAPP_NUMBER
 
   input::placeholder,
   textarea::placeholder {
-    color: rgba(155, 196, 234, 0.72);
+    color: rgba(109, 116, 133, 0.82);
   }
 
   select option {
-    background-color: #0c1830;
+    background-color: #fffaf3;
     color: var(--color-text);
   }
 
@@ -603,7 +615,7 @@ const whatsappHref = WHATSAPP_NUMBER
   textarea:focus {
     border-color: var(--color-gold-light);
     box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.22);
-    background-color: rgba(9, 15, 30, 0.96);
+    background-color: rgba(255, 255, 255, 0.96);
   }
 
   input[aria-invalid='true'],
@@ -628,7 +640,7 @@ const whatsappHref = WHATSAPP_NUMBER
     width: 100%;
     padding: 0.95rem 2rem;
     background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
-    color: #1d2340;
+    color: var(--color-ink-on-accent);
     font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 700;
@@ -667,7 +679,7 @@ const whatsappHref = WHATSAPP_NUMBER
 
   .form-privacy {
     font-size: 0.8rem;
-    color: rgba(226, 232, 244, 0.78);
+    color: var(--color-text-muted);
     text-align: center;
     line-height: 1.5;
   }

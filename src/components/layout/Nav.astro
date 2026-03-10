@@ -140,11 +140,11 @@ const isActive = (href: string) =>
     left: 50%;
     transform: translateX(-50%) translateY(-4px);
     min-width: 235px;
-    background: color-mix(in srgb, var(--color-bg) 96%, transparent);
+    background: color-mix(in srgb, var(--color-surface-strong) 92%, transparent);
     border-radius: 12px;
     box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.55),
-      0 0 0 1px rgba(226, 232, 244, 0.1);
+      0 20px 40px rgba(26, 42, 94, 0.14),
+      0 0 0 1px var(--color-border);
     padding: 0.45rem;
     opacity: 0;
     visibility: hidden;
@@ -175,7 +175,7 @@ const isActive = (href: string) =>
   .dropdown-link:hover,
   .dropdown-link:focus-visible {
     color: var(--color-text);
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: color-mix(in srgb, var(--color-navy-light) 58%, var(--color-white));
   }
 
   .dropdown-link--active {

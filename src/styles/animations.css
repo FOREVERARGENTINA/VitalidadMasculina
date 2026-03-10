@@ -61,7 +61,7 @@
 
   @keyframes header-shadow {
     to {
-      box-shadow: 0 2px 20px rgba(6, 12, 28, 0.55);
+      box-shadow: 0 14px 34px rgba(26, 42, 94, 0.14);
     }
   }
 

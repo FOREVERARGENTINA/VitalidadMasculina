@@ -63,9 +63,9 @@
     position: relative;
     overflow: hidden;
     background:
-      radial-gradient(700px 260px at 8% -14%, rgba(201, 168, 76, 0.22), transparent 62%),
-      radial-gradient(900px 360px at 100% 100%, rgba(147, 171, 226, 0.14), transparent 62%),
-      linear-gradient(140deg, #09173a 0%, #112457 52%, #182f6c 100%);
+      radial-gradient(700px 260px at 8% -14%, rgba(201, 168, 76, 0.18), transparent 62%),
+      radial-gradient(900px 360px at 100% 100%, rgba(147, 171, 226, 0.16), transparent 62%),
+      linear-gradient(140deg, #fbf6ee 0%, #f2e6d7 52%, #eadbc7 100%);
     padding: 4rem 1.5rem;
   }
 
@@ -76,8 +76,8 @@
     background:
       repeating-linear-gradient(
         -45deg,
-        rgba(255, 255, 255, 0.02) 0px,
-        rgba(255, 255, 255, 0.02) 1px,
+        rgba(32, 48, 79, 0.03) 0px,
+        rgba(32, 48, 79, 0.03) 1px,
         transparent 1px,
         transparent 15px
       );
@@ -95,10 +95,10 @@
     margin: 0 auto;
     padding: 1.5rem;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--color-border);
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.72), rgba(255, 250, 242, 0.5));
     backdrop-filter: blur(2px);
-    box-shadow: 0 26px 48px rgba(3, 9, 28, 0.34);
+    box-shadow: 0 26px 48px rgba(26, 42, 94, 0.12);
   }
 
   .videoconsulta-media {
@@ -128,14 +128,14 @@
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--color-white);
+    color: var(--color-navy-dark);
     line-height: 1.2;
     margin-bottom: 0.875rem;
   }
 
   .videoconsulta-desc {
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: color-mix(in srgb, var(--color-text) 82%, var(--color-white));
     line-height: 1.65;
     margin-bottom: 1.25rem;
     max-width: 520px;
@@ -153,7 +153,7 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
   }
 
   .videoconsulta-features svg {
@@ -167,7 +167,7 @@
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     background-color: var(--color-gold);
-    color: var(--color-white);
+    color: var(--color-ink-on-accent);
     font-weight: 600;
     font-size: 0.9375rem;
     border-radius: 999px;
@@ -175,7 +175,7 @@
   }
 
   .videoconsulta-cta:hover {
-    background-color: #b8973a;
+    background-color: var(--color-gold-hover);
     transform: translateY(-2px);
   }
 

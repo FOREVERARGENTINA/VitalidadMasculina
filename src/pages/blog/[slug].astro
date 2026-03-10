@@ -33,12 +33,12 @@ const { Content } = await render(post);
     color: var(--color-text);
     margin: 2rem 0 0.875rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(226, 232, 244, 0.2);
+    border-bottom: 2px solid var(--color-border);
   }
 
   .post-content h3 {
     font-size: 1.15rem;
-    color: rgba(226, 232, 244, 0.92);
+    color: var(--color-navy-dark);
     margin: 1.5rem 0 0.5rem;
   }
 
@@ -162,7 +162,7 @@ const { Content } = await render(post);
   .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
 
   .breadcrumb a {
-    color: rgba(226, 232, 244, 0.82);
+    color: var(--color-text);
     transition: color 0.15s;
   }
 
@@ -174,7 +174,7 @@ const { Content } = await render(post);
     margin: 3rem auto 4rem;
     padding: 2.5rem 1.5rem;
     background-color: var(--color-bg-2);
-    border: 1px solid rgba(226, 232, 244, 0.16);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     text-align: center;
   }
@@ -191,7 +191,7 @@ const { Content } = await render(post);
     display: inline-block;
     padding: 0.8125rem 2rem;
     background-color: var(--color-gold);
-    color: var(--color-bg-hero);
+    color: var(--color-ink-on-accent);
     font-weight: 600;
     border-radius: var(--radius-md);
     transition: background-color 0.2s, transform 0.15s;

@@ -5,20 +5,23 @@
 
 /* ── Page hero ──────────────────────────────────────────────── */
 .page-hero {
-  background: linear-gradient(135deg, var(--color-bg-hero) 0%, var(--color-bg) 100%);
+  background:
+    radial-gradient(960px 280px at 10% 0%, rgba(201, 168, 76, 0.12), transparent 55%),
+    radial-gradient(760px 260px at 100% 100%, rgba(92, 132, 191, 0.12), transparent 58%),
+    linear-gradient(135deg, var(--color-bg-2) 0%, var(--color-bg) 100%);
   padding: 3.5rem 0 3rem;
   color: var(--color-text);
 }
 
 .page-hero h1 {
   font-size: clamp(2rem, 4vw, 2.75rem);
-  color: var(--color-white);
+  color: var(--color-navy-dark);
   margin: 0.75rem 0 1rem;
 }
 
 .page-hero__lead {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: color-mix(in srgb, var(--color-text) 82%, var(--color-white));
   max-width: 600px;
   line-height: 1.65;
   font-style: italic;
@@ -31,7 +34,7 @@
   display: flex;
   gap: 0.5rem;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: color-mix(in srgb, var(--color-text-muted) 84%, var(--color-white));
   margin-bottom: 0.5rem;
 }
 
@@ -42,7 +45,7 @@
 }
 
 .breadcrumb a {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-muted);
   transition: color 0.15s;
 }
 
@@ -74,7 +77,7 @@
   color: var(--color-text);
   margin-bottom: 0.875rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(226, 232, 244, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .content-section h3 {
@@ -132,9 +135,10 @@
   margin-top: 3rem;
   padding: 2.5rem;
   background: var(--color-bg-2);
-  border: 1px solid rgba(226, 232, 244, 0.08);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   text-align: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .page-cta h2 {
@@ -154,7 +158,7 @@
   display: inline-block;
   padding: 0.8125rem 2rem;
   background-color: var(--color-gold);
-  color: var(--color-bg-hero);
+  color: var(--color-ink-on-accent);
   font-weight: 700;
   border-radius: var(--radius-md);
   transition: background-color 0.2s, transform 0.15s;
