@@ -1,10 +1,10 @@
 ---
 const services = [
-  { label: 'Disfunción Eréctil',  href: '/disfuncion-erectil' },
-  { label: 'Eyaculación Precoz',  href: '/eyaculacion-precoz' },
-  { label: 'Falta de Deseo',      href: '/falta-de-deseo'     },
-  { label: 'Terapia Hormonal',    href: '/terapia-hormonal'   },
-  { label: 'Urología',            href: '/urologia'           },
+  { label: 'Disfunción Eréctil', href: '/disfuncion-erectil' },
+  { label: 'Eyaculación Precoz', href: '/eyaculacion-precoz' },
+  { label: 'Falta de Deseo', href: '/falta-de-deseo' },
+  { label: 'Terapia Hormonal', href: '/terapia-hormonal' },
+  { label: 'Urología', href: '/urologia' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -24,18 +24,18 @@ const isActive = (href: string) =>
     <li class="nav-dropdown">
       <button
         class:list={['nav-link nav-link--dropdown', {
-          'nav-link--active': services.some(s => isActive(s.href)),
+          'nav-link--active': services.some((s) => isActive(s.href)),
         }]}
         aria-expanded="false"
         aria-haspopup="true"
       >
         Servicios
         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" fill="currentColor">
-          <path d="M6 8L1 3h10L6 8z"/>
+          <path d="M6 8L1 3h10L6 8z" />
         </svg>
       </button>
       <ul class="dropdown-menu" role="list">
-        {services.map(s => (
+        {services.map((s) => (
           <li>
             <a
               href={s.href}
@@ -55,7 +55,7 @@ const isActive = (href: string) =>
     </li>
     <li>
       <a href="/sobre-mi" class:list={['nav-link', { 'nav-link--active': isActive('/sobre-mi') }]}>
-        Sobre mí
+        Equipo médico
       </a>
     </li>
   </ul>
@@ -125,7 +125,8 @@ const isActive = (href: string) =>
   .nav-link--dropdown svg {
     transition: transform 0.2s;
   }
-  .nav-link--dropdown[aria-expanded="true"] svg {
+
+  .nav-link--dropdown[aria-expanded='true'] svg {
     transform: rotate(180deg);
   }
 
@@ -156,7 +157,7 @@ const isActive = (href: string) =>
 
   .nav-dropdown:hover .dropdown-menu,
   .nav-dropdown:focus-within .dropdown-menu,
-  .nav-link--dropdown[aria-expanded="true"] ~ .dropdown-menu {
+  .nav-link--dropdown[aria-expanded='true'] ~ .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -187,7 +188,7 @@ const isActive = (href: string) =>
 
 <script>
   // Toggle dropdown en mobile con teclado y click
-  document.querySelectorAll<HTMLButtonElement>('.nav-link--dropdown').forEach(btn => {
+  document.querySelectorAll<HTMLButtonElement>('.nav-link--dropdown').forEach((btn) => {
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       btn.setAttribute('aria-expanded', String(!expanded));
@@ -196,7 +197,7 @@ const isActive = (href: string) =>
 
   // Cerrar dropdown al hacer click fuera
   document.addEventListener('click', (e) => {
-    document.querySelectorAll<HTMLButtonElement>('.nav-link--dropdown').forEach(btn => {
+    document.querySelectorAll<HTMLButtonElement>('.nav-link--dropdown').forEach((btn) => {
       const dropdown = btn.closest('.nav-dropdown');
       if (dropdown && !dropdown.contains(e.target as Node)) {
         btn.setAttribute('aria-expanded', 'false');

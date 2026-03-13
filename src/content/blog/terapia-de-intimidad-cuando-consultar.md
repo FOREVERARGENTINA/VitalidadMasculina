@@ -4,7 +4,7 @@ description: "Señales frecuentes para considerar terapia de intimidad, qué pro
 pubDate: 2026-03-05
 category: "Bienestar"
 image: "/images/terapia-intimidad.webp"
-author: "Dr. Leandro Mateu"
+author: "Equipo medico"
 ---
 
 Muchas personas conviven durante años con dificultades en su vida íntima sin pedir ayuda profesional. Sin embargo, consultar a tiempo suele mejorar el pronóstico, reducir ansiedad y recuperar calidad de vida en pareja.

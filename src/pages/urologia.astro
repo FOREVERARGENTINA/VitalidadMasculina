@@ -5,38 +5,79 @@ import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astr
 
 <Page
   title="Urología Masculina"
-  description="Consultas de urología masculina con el Dr. Leandro Mateu en Zona Palermo, CABA. Atención también por videollamada."
+  description="Consultas de urología masculina con un equipo medico especializado en Capital Federal. Atención también por videollamada."
 >
-  <section class="page-hero">
+  <section class="page-hero page-hero--service">
     <div class="container">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li aria-current="page">Urología</li>
-        </ol>
-      </nav>
       <h1>Urología Masculina</h1>
+      <p class="page-hero__lead">
+        Abordamos de manera integral los problemas urológicos del hombre, con diagnóstico,
+        tratamiento y seguimiento especializado en cada etapa de la vida.
+      </p>
     </div>
   </section>
 
   <article class="page-content">
     <div class="container container--narrow">
 
-      <!-- TODO: Contenido a desarrollar con el cliente -->
       <section class="content-section reveal">
-        <p class="placeholder-notice">
-          Esta sección está en desarrollo. Próximamente encontrarás información completa
-          sobre los servicios de urología masculina disponibles en el consultorio.
+        <h2>¿Qué abarca la urología masculina?</h2>
+        <p>
+          La urología masculina se ocupa de la salud del sistema urinario y del aparato
+          reproductor masculino. En Vitalidad Masculina abordamos cada consulta con una
+          evaluación clínica orientada al diagnóstico, al tratamiento y al seguimiento de
+          cada paciente.
         </p>
         <p>
-          Para consultas sobre urología, podés comunicarte directamente a través del
-          formulario de contacto o por WhatsApp.
+          El objetivo es brindar una atención especializada y personalizada, tanto en los
+          controles preventivos como en el estudio de síntomas urinarios, prostáticos,
+          testiculares y otras patologías urológicas frecuentes.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Consultas urológicas frecuentes</h2>
+        <p>
+          Entre los motivos de consulta más habituales se encuentran:
+        </p>
+        <ul class="content-list">
+          <li>Síntomas prostáticos y crecimiento de la próstata</li>
+          <li>Infecciones urinarias y prostatitis</li>
+          <li>Cálculos urinarios (piedras en riñón o uréter)</li>
+          <li>Sangre en orina</li>
+          <li>Dolor testicular o escrotal</li>
+          <li>Control y prevención del cáncer de próstata</li>
+        </ul>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Evaluación y seguimiento en consultorio</h2>
+        <p>
+          En el consultorio se realizan controles urológicos preventivos, evaluación clínica,
+          solicitud de estudios complementarios y seguimiento personalizado de cada paciente.
+        </p>
+        <p>
+          Cada caso se estudia en función de los síntomas, los antecedentes y la necesidad de
+          definir la conducta diagnóstica o terapéutica más adecuada.
+        </p>
+      </section>
+
+      <section class="content-section reveal">
+        <h2>Procedimientos quirúrgicos</h2>
+        <p>
+          También se programan en diferentes clínicas procedimientos quirúrgicos para patologías
+          como crecimiento prostático, cálculos urinarios, lesiones vesicales, patología
+          testicular y otras enfermedades urológicas.
+        </p>
+        <p>
+          Cuando están indicadas, se utilizan técnicas modernas y mínimamente invasivas,
+          priorizando una resolución adecuada para cada cuadro clínico.
         </p>
       </section>
 
       <div class="page-cta">
         <h2>¿Tenés una consulta de urología?</h2>
-        <p>Contactanos y te respondemos a la brevedad.</p>
+        <p>Turnos presenciales en Capital Federal y videoconsulta disponible para orientación inicial.</p>
         <a href="/contacto" class="btn-primary">Solicitá tu consulta</a>
       </div>
 
@@ -45,14 +86,3 @@ import VideoConsultaBanner from '../components/sections/VideoConsultaBanner.astr
 
   <VideoConsultaBanner />
 </Page>
-
-<style>
-  .placeholder-notice {
-    background-color: var(--color-bg-2);
-    border-left: 3px solid var(--color-gold);
-    padding: 1rem 1.25rem;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-style: italic;
-    color: var(--color-text-muted);
-  }
-</style>

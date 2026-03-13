@@ -32,7 +32,7 @@ const services = [
     <div class="footer-brand">
       <a href="/" class="footer-logo" aria-label={`${SITE_NAME} — Inicio`}>
         <img
-          src="/images/logotipo.png"
+          src="/images/logotipo-footer.png"
           alt="Logo Vitalidad Masculina"
           class="footer-logo-img"
           width="52"
@@ -47,7 +47,7 @@ const services = [
 
       <p class="footer-desc">
         Diagnóstico integral y tratamiento personalizado en salud masculina.
-        Atención presencial en Palermo y videoconsulta para toda Argentina.
+        Atención presencial en Capital Federal y videoconsulta para toda Argentina.
       </p>
 
       <p class="footer-location">
@@ -73,7 +73,7 @@ const services = [
       <h3 class="footer-heading">Navegación</h3>
       <ul role="list">
         <li><a href="/" class="footer-link">Inicio</a></li>
-        <li><a href="/sobre-mi" class="footer-link">Sobre el Dr. Mateu</a></li>
+        <li><a href="/sobre-mi" class="footer-link">Sobre el equipo medico</a></li>
         <li><a href="/blog" class="footer-link">Blog de salud</a></li>
         <li><a href="/contacto" class="footer-link">Solicitar consulta</a></li>
       </ul>
@@ -165,40 +165,62 @@ const services = [
 </footer>
 
 <style>
-  /* ── Footer shell ─────────────────────────────────────────── */
   .site-footer {
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    --footer-diagonal: clamp(52px, 7vw, 84px);
     background:
-      radial-gradient(720px 260px at 8% 0%, rgba(201, 168, 76, 0.14), transparent 60%),
-      radial-gradient(820px 320px at 100% 100%, rgba(92, 132, 191, 0.1), transparent 62%),
-      linear-gradient(180deg, var(--color-bg-2) 0%, var(--color-bg) 100%);
-    color: var(--color-text);
-    margin-top: auto;
+      radial-gradient(980px 360px at 7% 0%, rgba(201, 168, 76, 0.18), transparent 60%),
+      radial-gradient(760px 340px at 100% 18%, rgba(92, 132, 191, 0.16), transparent 64%),
+      linear-gradient(135deg, #0d1f42 0%, #142a52 58%, #19345d 100%);
+    color: var(--color-text-contrast);
+    margin-top: calc(-1 * var(--footer-diagonal));
+    padding-top: var(--footer-diagonal);
+    clip-path: polygon(0 var(--footer-diagonal), 100% 0, 100% 100%, 0 100%);
   }
 
-  /* Línea gold difuminada en el borde superior */
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        -34deg,
+        rgba(255, 255, 255, 0.035) 0,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 1px,
+        transparent 26px
+      );
+    pointer-events: none;
+    z-index: -1;
+  }
+
   .footer-top-line {
     height: 1px;
     background: linear-gradient(90deg,
       transparent 0%,
-      rgba(201, 168, 76, 0.25) 30%,
-      rgba(201, 168, 76, 0.45) 50%,
-      rgba(201, 168, 76, 0.25) 70%,
+      rgba(201, 168, 76, 0.2) 18%,
+      rgba(201, 168, 76, 0.55) 50%,
+      rgba(201, 168, 76, 0.2) 82%,
       transparent 100%
     );
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
   }
 
-  /* ── Grid interior ───────────────────────────────────────── */
   .footer-inner {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.2fr;
     gap: 3.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3.5rem 1.5rem 3rem;
+    padding: 4.25rem 1.5rem 3.25rem;
+    position: relative;
+    z-index: 1;
   }
 
-  /* ── Brand ───────────────────────────────────────────────── */
   .footer-logo {
     display: flex;
     align-items: center;
@@ -217,7 +239,7 @@ const services = [
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-text-contrast);
     letter-spacing: 0.01em;
   }
 
@@ -232,10 +254,10 @@ const services = [
 
   .footer-desc {
     font-size: 0.875rem;
-    color: var(--color-text-muted);
+    color: color-mix(in srgb, var(--color-text-contrast) 76%, #b7c6de);
     line-height: 1.7;
     margin-bottom: 0.875rem;
-    max-width: 280px;
+    max-width: 320px;
   }
 
   .footer-location {
@@ -243,10 +265,9 @@ const services = [
     align-items: center;
     gap: 0.4rem;
     font-size: 0.8rem;
-    color: color-mix(in srgb, var(--color-text-muted) 88%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 68%, #b7c6de);
   }
 
-  /* ── Column headings ─────────────────────────────────────── */
   .footer-heading {
     font-family: var(--font-body);
     font-size: 0.68rem;
@@ -257,21 +278,21 @@ const services = [
     margin-bottom: 1.1rem;
   }
 
-  /* ── Links ───────────────────────────────────────────────── */
-  ul {
+  .site-footer ul {
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
+    gap: 0.72rem;
   }
 
   .footer-link {
     font-size: 0.875rem;
-    color: var(--color-text-muted);
-    transition: color 0.15s;
+    color: color-mix(in srgb, var(--color-text-contrast) 72%, #b5c4dc);
+    transition: color 0.15s, transform 0.15s;
   }
 
   .footer-link:hover {
-    color: var(--color-text);
+    color: var(--color-gold);
+    transform: translateX(2px);
   }
 
   .footer-link--icon {
@@ -281,8 +302,8 @@ const services = [
   }
 
   .footer-link--icon svg {
-    opacity: 0.55;
-    transition: opacity 0.15s;
+    opacity: 0.72;
+    transition: opacity 0.15s, color 0.15s;
     flex-shrink: 0;
   }
 
@@ -292,38 +313,51 @@ const services = [
 
   .footer-pending {
     font-size: 0.8rem;
-    color: color-mix(in srgb, var(--color-text-muted) 76%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 60%, #b5c4dc);
     font-style: italic;
   }
 
-  /* ── CTA dentro de contacto ──────────────────────────────── */
+  .footer-contact {
+    padding: 1.35rem 1.35rem 1.45rem;
+    border: 1px solid rgba(201, 168, 76, 0.18);
+    border-radius: 24px;
+    background:
+      linear-gradient(180deg, rgba(8, 19, 41, 0.56), rgba(8, 19, 41, 0.78));
+    box-shadow: 0 18px 36px rgba(7, 18, 40, 0.2);
+  }
+
   .footer-cta {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.45rem;
     margin-top: 1.5rem;
-    padding: 0.6rem 1.1rem;
-    background: transparent;
-    border: 1px solid rgba(201, 168, 76, 0.4);
+    padding: 0.72rem 1rem;
+    background: var(--color-gold);
+    border: 1px solid rgba(201, 168, 76, 0.8);
     border-radius: 999px;
-    color: var(--color-gold);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    color: var(--color-ink-on-accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+    box-shadow: 0 16px 34px rgba(201, 168, 76, 0.22);
   }
 
   .footer-cta:hover {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-    color: var(--color-ink-on-accent);
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, 0.28);
   }
 
-  /* ── Bottom bar ──────────────────────────────────────────── */
   .footer-bottom {
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(7, 17, 37, 0.24);
     padding: 1.25rem 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   .footer-bottom__inner {
@@ -337,23 +371,23 @@ const services = [
 
   .footer-copy {
     font-size: 0.8rem;
-    color: color-mix(in srgb, var(--color-text-muted) 88%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 74%, #b5c4dc);
   }
 
   .footer-legal {
     font-size: 0.75rem;
-    color: color-mix(in srgb, var(--color-text-muted) 76%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 60%, #b5c4dc);
     flex: 1;
   }
 
   .footer-dev {
     font-size: 0.78rem;
-    color: color-mix(in srgb, var(--color-text-muted) 82%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 68%, #b5c4dc);
     margin-left: auto;
   }
 
   .footer-dev a {
-    color: var(--color-text);
+    color: var(--color-text-contrast);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.15s;
@@ -363,17 +397,23 @@ const services = [
     color: var(--color-gold);
   }
 
-  /* ── Responsive ──────────────────────────────────────────── */
   @media (max-width: 960px) {
     .footer-inner {
       grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
+      padding-top: 3.5rem;
     }
+
     .footer-brand {
       grid-column: 1 / -1;
     }
+
     .footer-desc {
       max-width: 100%;
+    }
+
+    .footer-contact {
+      grid-column: 1 / -1;
     }
   }
 
@@ -381,13 +421,19 @@ const services = [
     .footer-inner {
       grid-template-columns: 1fr;
       gap: 2rem;
-      padding: 2.5rem 1.25rem 2rem;
+      padding: 2.8rem 1.25rem 2rem;
     }
+
+    .footer-contact {
+      padding: 1.15rem 1.05rem 1.25rem;
+    }
+
     .footer-bottom__inner {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.25rem;
     }
+
     .footer-dev {
       margin-left: 0;
     }

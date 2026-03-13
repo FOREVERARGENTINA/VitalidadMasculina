@@ -11,20 +11,33 @@ const whatsappHref = WHATSAPP_NUMBER
 
 <Page
   title="Contacto · Solicitá tu consulta"
-  description={`Solicitá una consulta con el Dr. Leandro Mateu. Atención presencial en ${CONSULTORIO_ZONA} y por videollamada para toda Argentina.`}
+  description={`Solicitá una consulta con nuestro equipo medico. Atención presencial en ${CONSULTORIO_ZONA} y por videollamada para toda Argentina.`}
 >
-  <section class="page-hero">
-    <div class="container">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li aria-current="page">Contacto</li>
-        </ol>
-      </nav>
-      <h1>Solicitá tu consulta</h1>
-      <p class="page-hero__lead">
-        Completá el formulario y te contactamos a la brevedad para coordinar un turno.
-      </p>
+  <section class="page-hero page-hero--contacto">
+    <div class="container page-hero__layout">
+      <div class="page-hero__card">
+        <p class="page-hero__eyebrow">Atención confidencial en consultorio y por videollamada</p>
+        <h1>Solicitá tu consulta</h1>
+        <p class="page-hero__lead">
+          Completá el formulario y nuestro equipo te contactará a la brevedad para coordinar tu turno.
+        </p>
+        <div class="page-hero__actions">
+          <a href="#contact-form" class="page-hero__cta">Iniciar solicitud</a>
+          {WHATSAPP_NUMBER && (
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="page-hero__cta page-hero__cta--secondary"
+            >
+              WhatsApp directo
+            </a>
+          )}
+        </div>
+        <p class="page-hero__trust">
+          Respuesta habitual dentro de 24 horas hábiles. Atención particular y privacidad médica garantizada.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -43,7 +56,7 @@ const whatsappHref = WHATSAPP_NUMBER
           </div>
           <div>
             <h3>Consulta presencial</h3>
-            <p>Zona {CONSULTORIO_ZONA}</p>
+            <p>{CONSULTORIO_ZONA}</p>
             <p class="info-note">Solo atención particular</p>
           </div>
         </div>
@@ -343,54 +356,137 @@ const whatsappHref = WHATSAPP_NUMBER
   /* Hero */
   .page-hero {
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
     background:
-      radial-gradient(1200px 280px at 12% -18%, rgba(201, 168, 76, 0.18), transparent 52%),
-      radial-gradient(900px 260px at 90% 0%, rgba(92, 132, 191, 0.14), transparent 48%),
-      linear-gradient(135deg, var(--color-bg-2) 0%, var(--color-bg-hero) 100%);
-    padding: 3.5rem 0 3rem;
-    color: var(--color-text);
+      radial-gradient(1200px 420px at -8% 0%, rgba(214, 176, 73, 0.24), transparent 62%),
+      radial-gradient(760px 380px at 102% 22%, rgba(114, 154, 218, 0.18), transparent 65%),
+      linear-gradient(132deg, #0d1f42 0%, #152b54 58%, #1c3663 100%);
+    padding: clamp(1.7rem, 3.2vw, 2.65rem) 0 clamp(2.25rem, 4.1vw, 3.1rem);
+    color: var(--color-text-contrast);
+  }
+
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        -32deg,
+        rgba(255, 255, 255, 0.03) 0,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 22px
+      );
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: clamp(34px, 5.6vw, 58px);
+    background: var(--color-bg);
+    clip-path: polygon(0 42%, 100% 12%, 100% 100%, 0 100%);
+    z-index: -1;
+  }
+
+  .page-hero__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 820px);
+    justify-content: start;
+  }
+
+  .page-hero__card {
+    background: transparent;
+    color: var(--color-text-contrast);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .page-hero__eyebrow {
+    margin: 0 0 0.55rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-gold-light) 84%, var(--color-white));
   }
 
   .page-hero h1 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    color: var(--color-navy-dark);
-    margin: 0.75rem 0 1rem;
+    font-size: clamp(2.05rem, 4.8vw, 3.35rem);
+    color: var(--color-text-contrast);
+    margin: 0 0 0.75rem;
+    text-wrap: balance;
   }
 
   .page-hero__lead {
-    font-size: 1.0625rem;
-    color: color-mix(in srgb, var(--color-text) 84%, var(--color-white));
-    max-width: 540px;
-    line-height: 1.65;
+    font-size: clamp(1rem, 1.8vw, 1.14rem);
+    color: color-mix(in srgb, var(--color-text-contrast) 92%, var(--color-white));
+    max-width: 62ch;
+    line-height: 1.72;
+    margin: 0;
   }
 
-  .breadcrumb ol {
+  .page-hero__actions {
+    margin-top: 0.92rem;
     display: flex;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    color: color-mix(in srgb, var(--color-text-muted) 88%, var(--color-white));
-    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.85rem;
   }
 
-  .breadcrumb li + li::before {
-    content: '/';
-    margin-right: 0.5rem;
-    opacity: 0.65;
+  .page-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0.68rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(178, 142, 57, 0.74);
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold));
+    color: var(--color-ink-on-accent);
+    font-size: 0.91rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 12px 24px rgba(181, 141, 58, 0.24);
   }
 
-  .breadcrumb a {
-    color: var(--color-text);
-    transition: color 0.15s;
+  .page-hero__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(181, 141, 58, 0.3);
+    filter: brightness(1.04);
   }
 
-  .breadcrumb a:hover {
-    color: var(--color-gold-light);
+  .page-hero__cta--secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-contrast);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: none;
   }
 
-  /* Layout */
+  .page-hero__cta--secondary:hover {
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .page-hero__trust {
+    margin-top: 0.78rem;
+    padding-top: 0.62rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 0.84rem;
+    letter-spacing: 0.01em;
+    color: color-mix(in srgb, var(--color-text-contrast) 82%, var(--color-white));
+  }
+/* Layout */
   .contact-section {
     position: relative;
-    padding: 4rem 0 5rem;
+    padding: 3.5rem 0 5rem;
     background:
       radial-gradient(900px 500px at 12% 14%, rgba(63, 135, 214, 0.08), transparent 62%),
       radial-gradient(760px 420px at 88% 80%, rgba(201, 168, 76, 0.08), transparent 60%),
@@ -557,6 +653,10 @@ const whatsappHref = WHATSAPP_NUMBER
     gap: 1.25rem;
   }
 
+  #contact-form {
+    scroll-margin-top: 8rem;
+  }
+
   .field {
     display: flex;
     flex-direction: column;
@@ -686,6 +786,18 @@ const whatsappHref = WHATSAPP_NUMBER
 
   /* Responsive */
   @media (max-width: 900px) {
+    .page-hero {
+      padding: 1.45rem 0 2.55rem;
+    }
+
+    .page-hero::after {
+      clip-path: polygon(0 52%, 100% 24%, 100% 100%, 0 100%);
+    }
+
+    .page-hero__actions {
+      gap: 0.72rem;
+    }
+
     .contact-grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
@@ -701,6 +813,22 @@ const whatsappHref = WHATSAPP_NUMBER
   }
 
   @media (max-width: 560px) {
+    .page-hero__card {
+      padding: 0;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.9rem, 9vw, 2.5rem);
+    }
+
+    .page-hero__actions {
+      flex-direction: column;
+    }
+
+    .page-hero__cta {
+      width: 100%;
+    }
+
     .form-row {
       grid-template-columns: 1fr;
     }
@@ -710,4 +838,3 @@ const whatsappHref = WHATSAPP_NUMBER
     }
   }
 </style>
-

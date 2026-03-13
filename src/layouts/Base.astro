@@ -7,6 +7,7 @@ import {
   WHATSAPP_NUMBER,
   DEVELOPER_NAME,
   DEVELOPER_URL,
+  SEO_CABA_LOCALIDADES,
 } from '../utils/constants';
 import WhatsAppBtn from '../components/ui/WhatsAppBtn.astro';
 import '../styles/global.css';
@@ -40,7 +41,7 @@ const schemaOrg = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
   name: SITE_NAME,
-  description: 'Consultas especializadas en salud masculina con el ' + MEDICO_NOMBRE,
+  description: 'Consultas especializadas en salud masculina en Capital Federal con ' + MEDICO_NOMBRE,
   url: SITE_URL,
   telephone: WHATSAPP_NUMBER ? '+54 9 11 4096-9974' : '',
   address: {
@@ -50,6 +51,17 @@ const schemaOrg = {
   },
   areaServed: [
     { '@type': 'Country', name: 'Argentina' },
+    { '@type': 'City', name: 'Capital Federal' },
+    { '@type': 'City', name: 'Palermo' },
+    { '@type': 'City', name: 'Belgrano' },
+    { '@type': 'City', name: 'Recoleta' },
+    { '@type': 'City', name: 'Caballito' },
+    { '@type': 'City', name: 'Villa Urquiza' },
+    { '@type': 'City', name: 'Barrio Norte' },
+    { '@type': 'City', name: 'N\u00fa\u00f1ez' },
+    { '@type': 'City', name: 'Colegiales' },
+    { '@type': 'City', name: 'Almagro' },
+    { '@type': 'City', name: 'Puerto Madero' },
   ],
   availableService: [
     { '@type': 'MedicalTherapy', name: 'Disfunción Eréctil' },
@@ -78,6 +90,7 @@ const schemaOrg = {
     <!-- Título y descripción -->
     <title>{title} | {SITE_NAME}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={`salud masculina Capital Federal, urolog\u00eda Capital Federal, disfunci\u00f3n er\u00e9ctil Capital Federal, eyaculaci\u00f3n precoz Capital Federal, terapia hormonal Capital Federal, ${SEO_CABA_LOCALIDADES}`} />
 
     <!-- Canonical -->
     <link rel="canonical" href={canonicalURL} />

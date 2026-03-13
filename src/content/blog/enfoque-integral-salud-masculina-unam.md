@@ -4,7 +4,7 @@ description: "Resumen práctico de una tesis de la UNAM sobre prevención y enfo
 pubDate: 2026-03-05
 category: "Salud Masculina"
 image: "/images/enfoque-integral-salud-masculina.webp"
-author: "Dr. Leandro Mateu"
+author: "Equipo medico"
 ---
 
 Una parte importante de la consulta en salud masculina no pasa solo por "tratar un síntoma", sino por entender el contexto completo del paciente: cuerpo, emociones, vínculo de pareja, hábitos y expectativas.

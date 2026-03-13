@@ -6,39 +6,41 @@
   <div class="hero-bg" aria-hidden="true"></div>
 
   <div class="hero-content">
-    <div class="hero-line" aria-hidden="true"></div>
-    <p class="hero-eyebrow">Práctica médica privada en salud masculina</p>
+    <div class="hero-panel">
+      <div class="hero-line" aria-hidden="true"></div>
+      <p class="hero-eyebrow">Práctica médica privada en salud masculina</p>
 
-    <h1 id="hero-heading" class="hero-title">
-      Medicina masculina<br />
-      <span class="hero-title--accent">de precisión y máxima discreción</span>
-    </h1>
+      <h1 id="hero-heading" class="hero-title">
+        Medicina masculina<br />
+        <span class="hero-title--accent">de precisión y máxima discreción</span>
+      </h1>
 
-    <p class="hero-subtitle">
-      Diagnóstico integral, tratamiento personalizado y seguimiento cercano en un entorno reservado.
-      Atención presencial en Palermo y videoconsulta para pacientes de toda Argentina.
-    </p>
+      <p class="hero-subtitle">
+        Diagnóstico integral, tratamiento personalizado y seguimiento cercano en un entorno reservado.
+        Atención presencial en Capital Federal y videoconsulta para pacientes de toda Argentina.
+      </p>
 
-    <div class="hero-actions">
-      <a href="/contacto" class="btn btn--primary">
-        Coordinar consulta privada
-      </a>
-      <a href="#servicios" class="btn btn--outline">
-        Explorar especialidades
-      </a>
-    </div>
+      <div class="hero-actions">
+        <a href="/contacto" class="btn btn--primary">
+          Coordinar consulta privada
+        </a>
+        <a href="#servicios" class="btn btn--outline">
+          Explorar especialidades
+        </a>
+      </div>
 
-    <div class="hero-trust">
-      <span>Atención 1 a 1</span>
-      <span class="trust-sep" aria-hidden="true">·</span>
-      <span>Telemedicina premium</span>
-      <span class="trust-sep" aria-hidden="true">·</span>
-      <span>Confidencialidad absoluta</span>
+      <div class="hero-trust">
+        <span>Atención 1 a 1</span>
+        <span class="trust-sep" aria-hidden="true">·</span>
+        <span>Telemedicina premium</span>
+        <span class="trust-sep" aria-hidden="true">·</span>
+        <span>Confidencialidad absoluta</span>
+      </div>
     </div>
   </div>
 </section>
 
-<style>
+<style is:global>
   .hero {
     position: relative;
     min-height: 62svh;
@@ -61,24 +63,37 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(245, 239, 228, 0.96) 0%,
-      rgba(245, 239, 228, 0.8) 45%,
-      rgba(245, 239, 228, 0.18) 100%
-    );
+    background:
+      radial-gradient(900px 420px at 14% 22%, rgba(201, 168, 76, 0.24), transparent 62%),
+      linear-gradient(
+        92deg,
+        rgba(10, 29, 64, 0.84) 0%,
+        rgba(14, 35, 72, 0.7) 42%,
+        rgba(14, 35, 72, 0.34) 72%,
+        rgba(14, 35, 72, 0.12) 100%
+      );
   }
 
   .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 4rem 1.75rem;
+    max-width: none;
+    margin: 0;
+    padding: 4rem clamp(1rem, 4.4vw, 3.75rem);
     width: 100%;
   }
 
-  /* ── Animaciones de entrada ────────────────────────────────── */
+  .hero-panel {
+    width: min(100%, 660px);
+    padding: clamp(1rem, 2.6vw, 1.55rem);
+    background: linear-gradient(148deg, rgba(9, 25, 56, 0.56), rgba(9, 25, 56, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 18px 48px rgba(5, 16, 38, 0.28);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+
   @keyframes hero-line-grow {
     from { width: 0; opacity: 0; }
     to   { width: 80px; opacity: 1; }
@@ -102,13 +117,12 @@
     }
   }
 
-  /* Línea decorativa eléctrica */
   .hero-line {
     width: 80px;
     height: 2px;
-    background: rgba(63, 135, 214, 0.72);
-    margin-bottom: 1.5rem;
-    box-shadow: 0 0 6px rgba(63, 135, 214, 0.22);
+    background: rgba(131, 185, 255, 0.86);
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 6px rgba(131, 185, 255, 0.3);
     animation: hero-line-grow 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: 0.05s;
   }
@@ -119,7 +133,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--color-gold-light);
+    color: color-mix(in srgb, var(--color-gold-light) 84%, var(--color-white));
     margin-bottom: 1.1rem;
     animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: 0.22s;
@@ -129,7 +143,7 @@
     font-family: var(--font-heading);
     font-size: clamp(2.4rem, 5vw, 4rem);
     font-weight: 700;
-    color: var(--color-navy-dark);
+    color: var(--color-text-contrast);
     line-height: 1.05;
     letter-spacing: 0.01em;
     margin-bottom: 1rem;
@@ -144,7 +158,7 @@
 
   .hero-subtitle {
     font-size: clamp(0.94rem, 1.5vw, 1.05rem);
-    color: color-mix(in srgb, var(--color-text) 82%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 92%, var(--color-white));
     line-height: 1.72;
     max-width: 520px;
     margin-bottom: 1.5rem;
@@ -161,7 +175,7 @@
     animation-delay: 0.76s;
   }
 
-  .btn {
+  .hero .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -175,7 +189,7 @@
     white-space: nowrap;
   }
 
-  .btn--primary {
+  .hero .btn--primary {
     background-color: var(--color-gold);
     color: var(--color-ink-on-accent);
     box-shadow: 0 8px 20px rgba(201, 168, 76, 0.28);
@@ -183,26 +197,25 @@
     animation-delay: 1.6s;
   }
 
-  .btn--primary:hover {
+  .hero .btn--primary:hover {
     background-color: var(--color-gold-hover);
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(201, 168, 76, 0.38);
     animation-play-state: paused;
   }
 
-  .btn--outline {
-    background-color: rgba(255, 253, 248, 0.34);
-    color: var(--color-navy-dark);
-    border: 1px solid rgba(32, 48, 79, 0.18);
+  .hero .btn--outline {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-contrast);
+    border: 1px solid rgba(255, 255, 255, 0.32);
   }
 
-  .btn--outline:hover {
-    border-color: rgba(32, 48, 79, 0.3);
-    background-color: rgba(255, 253, 248, 0.65);
+  .hero .btn--outline:hover {
+    border-color: rgba(255, 255, 255, 0.52);
+    background-color: rgba(255, 255, 255, 0.16);
     transform: translateY(-2px);
   }
 
-  /* Trust items inline */
   .hero-trust {
     display: flex;
     align-items: center;
@@ -212,7 +225,7 @@
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-text-muted) 88%, var(--color-white));
+    color: color-mix(in srgb, var(--color-text-contrast) 88%, var(--color-white));
     animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
     animation-delay: 0.92s;
   }
@@ -226,6 +239,10 @@
     .hero-title {
       max-width: 100%;
     }
+
+    .hero-panel {
+      max-width: 100%;
+    }
   }
 
   @media (max-width: 600px) {
@@ -237,7 +254,12 @@
       padding: 2.4rem 1rem 2.8rem;
     }
 
-    .btn {
+    .hero-panel {
+      border-radius: 14px;
+      padding: 0.9rem 0.85rem 1rem;
+    }
+
+    .hero .btn {
       width: 100%;
     }
   }

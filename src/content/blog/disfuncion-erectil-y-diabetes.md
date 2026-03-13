@@ -4,7 +4,7 @@ description: "Qué relación existe entre diabetes y disfunción eréctil, y por
 pubDate: 2026-03-05
 category: "Disfunción Eréctil"
 image: "/images/disfuncion-erectil-diabetes.webp"
-author: "Dr. Leandro Mateu"
+author: "Equipo medico"
 ---
 
 La disfunción eréctil y la diabetes suelen aparecer juntas más de lo que muchos pacientes imaginan. Por eso, cuando hay dificultades de erección en un paciente diabético, la evaluación no debe enfocarse solo en el síntoma, sino en la salud general.

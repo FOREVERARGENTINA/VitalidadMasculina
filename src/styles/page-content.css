@@ -5,28 +5,103 @@
 
 /* ── Page hero ──────────────────────────────────────────────── */
 .page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background:
-    radial-gradient(960px 280px at 10% 0%, rgba(201, 168, 76, 0.12), transparent 55%),
-    radial-gradient(760px 260px at 100% 100%, rgba(92, 132, 191, 0.12), transparent 58%),
-    linear-gradient(135deg, var(--color-bg-2) 0%, var(--color-bg) 100%);
-  padding: 3.5rem 0 3rem;
-  color: var(--color-text);
+    radial-gradient(1100px 380px at 8% -10%, rgba(201, 168, 76, 0.28), transparent 62%),
+    radial-gradient(800px 340px at 98% 18%, rgba(92, 132, 191, 0.22), transparent 68%),
+    linear-gradient(135deg, #0d1f42 0%, #152b54 56%, #1c3762 100%);
+  padding: clamp(3.25rem, 6vw, 5rem) 0 clamp(4rem, 7vw, 5.75rem);
+  color: var(--color-text-contrast);
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -34deg,
+      rgba(255, 255, 255, 0.04) 0,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: clamp(72px, 10vw, 108px);
+  background: var(--color-bg);
+  clip-path: polygon(0 44%, 100% 12%, 100% 100%, 0 100%);
+  z-index: -1;
+}
+
+.page-hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero--disfuncion {
+  background:
+    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
+    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
+    url('/images/disfuncion.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-hero--precoz {
+  background:
+    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
+    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
+    url('/images/precoz.webp?v=20260312b');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-hero--service > .container {
+  min-block-size: clamp(182px, 20vw, 224px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page-hero--service h1 {
+  max-width: 20ch;
+}
+
+.page-hero--service .page-hero__lead {
+  max-width: 68ch;
 }
 
 .page-hero h1 {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  color: var(--color-navy-dark);
-  margin: 0.75rem 0 1rem;
+  font-size: clamp(2rem, 4.6vw, 3.25rem);
+  color: var(--color-text-contrast);
+  margin: 0 0 1rem;
+  max-width: 16ch;
 }
 
 .page-hero__lead {
-  font-size: 1.125rem;
-  color: color-mix(in srgb, var(--color-text) 82%, var(--color-white));
+  font-size: clamp(1rem, 1.9vw, 1.125rem);
+  color: color-mix(in srgb, var(--color-text-contrast) 90%, var(--color-white));
   max-width: 600px;
-  line-height: 1.65;
+  line-height: 1.72;
   font-style: italic;
-  border-left: 3px solid var(--color-gold);
-  padding-left: 1rem;
+  border-left: 3px solid rgba(201, 168, 76, 0.94);
+  padding: 0.35rem 0 0.35rem 1rem;
+  background-color: rgba(9, 20, 44, 0.32);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: 0 14px 36px rgba(6, 16, 37, 0.24);
 }
 
 /* ── Breadcrumb ─────────────────────────────────────────────── */
@@ -167,4 +242,31 @@
 .btn-primary:hover {
   background-color: var(--color-gold-hover);
   transform: translateY(-2px);
+}
+
+@media (max-width: 720px) {
+  .page-hero {
+    padding: 3rem 0 4.75rem;
+  }
+
+  .page-hero--service > .container {
+    min-block-size: 0;
+  }
+
+  .page-hero--service h1 {
+    max-width: 100%;
+  }
+
+  .page-hero--service .page-hero__lead {
+    max-width: 100%;
+  }
+
+  .page-hero::after {
+    clip-path: polygon(0 56%, 100% 30%, 100% 100%, 0 100%);
+  }
+
+  .page-hero__lead {
+    border-left-width: 2px;
+    padding-left: 0.8rem;
+  }
 }

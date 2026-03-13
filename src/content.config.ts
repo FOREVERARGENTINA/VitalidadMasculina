@@ -8,7 +8,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     category: z.string().optional(),
     image: z.string().optional(),
-    author: z.string().default('Dr. Leandro Mateu'),
+    author: z.string().default('Equipo medico'),
   }),
 });
 

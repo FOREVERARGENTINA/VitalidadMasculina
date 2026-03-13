@@ -10,17 +10,11 @@ const posts = (await getCollection('blog'))
 
 <Page
   title="Blog · Salud Masculina"
-  description="Artículos sobre salud masculina escritos por el Dr. Leandro Mateu: disfunción eréctil, eyaculación precoz, testosterona, bienestar y más."
+  description="Artículos sobre salud masculina escritos por nuestro equipo medico: disfunción eréctil, eyaculación precoz, testosterona, bienestar y más."
 >
   <!-- Hero de página -->
-  <section class="page-hero">
+  <section class="page-hero page-hero--blog">
     <div class="container">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
-        <ol>
-          <li><a href="/">Inicio</a></li>
-          <li aria-current="page">Blog</li>
-        </ol>
-      </nav>
       <h1>Blog de Salud Masculina</h1>
       <p class="page-hero__lead">
         Información médica actualizada, clara y sin vueltas sobre los temas que más importan.
@@ -74,42 +68,14 @@ const posts = (await getCollection('blog'))
 </Page>
 
 <style>
-  /* Hero */
-  .page-hero {
-    background:
-      radial-gradient(920px 260px at 10% 0%, rgba(201, 168, 76, 0.15), transparent 56%),
-      radial-gradient(780px 240px at 100% 100%, rgba(92, 132, 191, 0.14), transparent 58%),
-      linear-gradient(135deg, var(--color-bg-2) 0%, var(--color-bg-hero) 100%);
-    padding: 3.5rem 0 3rem;
-    color: var(--color-text);
+  .page-hero--blog h1 {
+    max-width: none;
   }
 
-  .page-hero h1 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    color: var(--color-navy-dark);
-    margin: 0.75rem 0 1rem;
+  .page-hero--blog .page-hero__lead {
+    max-width: 62ch;
   }
-
-  .page-hero__lead {
-    font-size: 1.0625rem;
-    color: color-mix(in srgb, var(--color-text) 84%, var(--color-white));
-    max-width: 520px;
-    line-height: 1.6;
-  }
-
-  .breadcrumb ol {
-    display: flex;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    color: color-mix(in srgb, var(--color-text-muted) 86%, var(--color-white));
-    margin-bottom: 0.5rem;
-  }
-
-  .breadcrumb li + li::before { content: '/'; margin-right: 0.5rem; opacity: 0.5; }
-  .breadcrumb a { color: var(--color-text); transition: color 0.15s; }
-  .breadcrumb a:hover { color: var(--color-gold); }
-
-  /* Sección principal */
+/* Sección principal */
   .blog-section {
     padding: 3.5rem 0 5rem;
     background-color: var(--color-bg);
