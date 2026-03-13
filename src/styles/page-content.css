@@ -50,23 +50,83 @@
 }
 
 .page-hero--disfuncion {
+  --service-hero-photo: url('/images/disfuncion.webp');
+  --service-hero-photo-position: center;
+  --service-hero-photo-size: cover;
   background:
     linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
     radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
     url('/images/disfuncion.webp');
+}
+
+.page-hero--precoz {
+  --service-hero-photo: url('/images/precoz.webp?v=20260312b');
+  --service-hero-photo-position: center;
+  --service-hero-photo-size: cover;
+  background:
+    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
+    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
+    url('/images/precoz.webp?v=20260312b');
+}
+
+.page-hero--deseo {
+  --service-hero-photo: url('/images/deseo.webp');
+  --service-hero-photo-position: center;
+  --service-hero-photo-size: cover;
+  background:
+    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
+    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
+    url('/images/deseo.webp');
+}
+
+.page-hero--urologia {
+  --service-hero-photo: url('/images/urologia.webp');
+  --service-hero-photo-position: center;
+  --service-hero-photo-size: cover;
+  background:
+    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
+    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
+    url('/images/urologia.webp');
+}
+
+.page-hero--chip {
+  --service-hero-photo: url('/images/chip2.webp');
+  --service-hero-photo-position: center;
+  --service-hero-photo-size: cover;
+  background:
+    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
+    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
+    url('/images/chip2.webp');
+}
+
+.page-hero--service-photo {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.page-hero--precoz {
-  background:
-    linear-gradient(104deg, rgba(8, 22, 48, 0.88) 0%, rgba(11, 28, 58, 0.76) 42%, rgba(15, 35, 70, 0.54) 68%, rgba(15, 35, 70, 0.38) 100%),
-    radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.2), transparent 62%),
-    url('/images/precoz.webp?v=20260312b');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+@media (min-width: 961px) {
+  .page-hero--service-photo {
+    background-size: auto, auto, 0 0;
+    background-position: center, 12% 15%, -9999px -9999px;
+  }
+
+  .page-hero--service-photo::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 43%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(420px 100% at 0% 50%, rgba(8, 22, 48, 0.3) 0%, rgba(8, 22, 48, 0.12) 38%, rgba(8, 22, 48, 0) 72%),
+      linear-gradient(90deg, rgba(8, 22, 48, 0.34) 0%, rgba(8, 22, 48, 0.14) 16%, rgba(8, 22, 48, 0.03) 34%, rgba(8, 22, 48, 0) 56%),
+      var(--service-hero-photo);
+    background-size: auto, auto, var(--service-hero-photo-size);
+    background-position: left center, left center, var(--service-hero-photo-position);
+    background-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.48) 10%, rgba(0, 0, 0, 0.82) 18%, #000 28%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.48) 10%, rgba(0, 0, 0, 0.82) 18%, #000 28%, #000 100%);
+  }
 }
 
 .page-hero--service > .container {
@@ -247,6 +307,16 @@
 @media (max-width: 720px) {
   .page-hero {
     padding: 3rem 0 4.75rem;
+  }
+
+  .page-hero--service-photo {
+    background:
+      linear-gradient(104deg, rgba(8, 22, 48, 0.62) 0%, rgba(11, 28, 58, 0.48) 42%, rgba(15, 35, 70, 0.32) 68%, rgba(15, 35, 70, 0.18) 100%),
+      radial-gradient(900px 360px at 12% 15%, rgba(201, 168, 76, 0.12), transparent 62%),
+      var(--service-hero-photo);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .page-hero--service > .container {

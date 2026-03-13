@@ -73,15 +73,17 @@ const isActive = (href: string) =>
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.5rem 0.9rem;
-    font-size: 0.86rem;
-    font-weight: 500;
-    color: var(--color-text-muted);
+    padding: 0.48rem 0.9rem 0.55rem;
+    font-size: 0.98rem;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    color: color-mix(in srgb, var(--color-text-muted) 90%, var(--color-navy-dark));
     transition: color 0.2s;
     background: none;
     border: none;
     cursor: pointer;
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     white-space: nowrap;
   }
 
@@ -102,7 +104,7 @@ const isActive = (href: string) =>
 
   .nav-link:hover,
   .nav-link:focus-visible {
-    color: var(--color-text);
+    color: color-mix(in srgb, var(--color-text) 88%, var(--color-navy-dark));
   }
 
   .nav-link:hover::after,
@@ -112,7 +114,7 @@ const isActive = (href: string) =>
 
   .nav-link--active {
     color: var(--color-gold);
-    font-weight: 600;
+    font-weight: 700;
   }
 
   .nav-link--active::after,
@@ -165,12 +167,15 @@ const isActive = (href: string) =>
 
   .dropdown-link {
     display: block;
-    padding: 0.52rem 0.82rem;
-    font-size: 0.84rem;
-    color: var(--color-text-muted);
+    padding: 0.56rem 0.82rem;
+    font-size: 0.92rem;
+    line-height: 1.2;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: color-mix(in srgb, var(--color-text-muted) 86%, var(--color-navy-dark));
     border-radius: 8px;
     transition: color 0.15s, background-color 0.15s;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.005em;
   }
 
   .dropdown-link:hover,
@@ -181,7 +186,7 @@ const isActive = (href: string) =>
 
   .dropdown-link--active {
     color: var(--color-gold);
-    font-weight: 600;
+    font-weight: 700;
     background: color-mix(in srgb, var(--color-gold) 10%, transparent);
   }
 </style>
