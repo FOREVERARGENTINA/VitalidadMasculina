@@ -1,6 +1,6 @@
 export const SITE_NAME = 'Vitalidad Masculina'
 // Temporal mientras se termina la configuración del dominio custom en Cloudflare.
-export const SITE_URL = 'https://vitalidad-masculina.pages.dev'
+export const SITE_URL = 'https://vitalidadmasculina.com.ar'
 export const MEDICO_NOMBRE = 'Equipo medico especializado'
 export const DEVELOPER_NAME = 'FrandoWeb'
 export const DEVELOPER_URL = 'https://frandoweb.com/'
