@@ -2,7 +2,7 @@
 import Base from './Base.astro';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
-import { SITE_NAME, SITE_URL, MEDICO_NOMBRE } from '../utils/constants';
+import { SITE_NAME, SITE_URL, MEDICO_NOMBRE, DEVELOPER_NAME, DEVELOPER_URL } from '../utils/constants';
 
 interface Props {
   title: string;
@@ -27,9 +27,12 @@ const canonicalURL = new URL(Astro.url.pathname, SITE_URL).href;
 const schemaBlogPosting = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
+  '@id': canonicalURL + '#article',
   headline: title,
   description,
   datePublished: pubDate.toISOString(),
+  dateModified: pubDate.toISOString(),
+  inLanguage: 'es-AR',
   author: {
     '@type': 'Person',
     name: author,
@@ -38,10 +41,29 @@ const schemaBlogPosting = {
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: SITE_URL + '/images/logo.png',
+    },
   },
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': canonicalURL,
+  },
+  isPartOf: {
+    '@type': 'Blog',
+    '@id': SITE_URL + '/blog/',
+    name: SITE_NAME + ' — Blog',
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  },
+  creator: {
+    '@type': 'Organization',
+    name: DEVELOPER_NAME,
+    url: DEVELOPER_URL,
   },
   ...(image ? { image: new URL(image, SITE_URL).href } : {}),
 };

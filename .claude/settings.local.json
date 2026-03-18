@@ -16,7 +16,10 @@
       "Bash(cd:*)",
       "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && npm run build 2>&1)",
       "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && npx astro check 2>&1)",
-      "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && git push origin main 2>&1)"
+      "Bash(cd \"E:/Aideas/VITALIDAD MASCULINA\" && git push origin main 2>&1)",
+      "Bash(find 'D:/Aideas/VITALIDAD MASCULINA/src/content/' -type f -name *.md -o -name *.yaml -o -name *.json)",
+      "Bash(find 'D:/Aideas/VITALIDAD MASCULINA' -maxdepth 3 -type f \\\\\\(-name *.astro -o -name *.md \\\\\\))",
+      "Bash(npm run:*)"
     ]
   }
 }

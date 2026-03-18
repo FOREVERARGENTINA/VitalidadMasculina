@@ -6,7 +6,10 @@ import {
   CONSULTORIO_ZONA,
   WHATSAPP_NUMBER,
   DEVELOPER_NAME,
+  DEVELOPER_DESIGNER,
   DEVELOPER_URL,
+  DEVELOPER_PHONE,
+  INSTAGRAM_URL,
   SEO_CABA_LOCALIDADES,
 } from '../utils/constants';
 import WhatsAppBtn from '../components/ui/WhatsAppBtn.astro';
@@ -40,13 +43,22 @@ const ogImageAlt = `${SITE_NAME} - ${title}`;
 const schemaOrg = {
   '@context': 'https://schema.org',
   '@type': 'MedicalBusiness',
+  '@id': SITE_URL + '/#business',
   name: SITE_NAME,
   description: 'Consultas especializadas en salud masculina en Capital Federal con ' + MEDICO_NOMBRE,
   url: SITE_URL,
-  telephone: WHATSAPP_NUMBER ? '+54 9 11 4096-9974' : '',
+  telephone: '+54 9 11 4096-9974',
+  logo: {
+    '@type': 'ImageObject',
+    url: SITE_URL + '/images/logo.png',
+    width: 300,
+    height: 100,
+  },
+  image: SITE_URL + '/images/og-image.jpg',
   address: {
     '@type': 'PostalAddress',
     addressLocality: CONSULTORIO_ZONA,
+    addressRegion: 'Buenos Aires',
     addressCountry: 'AR',
   },
   areaServed: [
@@ -70,22 +82,43 @@ const schemaOrg = {
     { '@type': 'MedicalTherapy', name: 'Terapia Hormonal con Pellets' },
     { '@type': 'MedicalTherapy', name: 'Urología Masculina' },
   ],
-  hasMap: '',
   medicalSpecialty: 'Urology',
+  sameAs: [INSTAGRAM_URL],
   creator: {
     '@type': 'Organization',
     name: DEVELOPER_NAME,
     url: DEVELOPER_URL,
+    telephone: DEVELOPER_PHONE,
+    founder: {
+      '@type': 'Person',
+      name: DEVELOPER_DESIGNER,
+    },
   },
 };
 ---
 
 <!doctype html>
+<!--
+  ============================================================
+  Diseño y Desarrollo Web: Hernán — FrandoWeb
+  Sitio: https://www.frandoweb.com
+  Teléfono: +54 11 2807-4000
+  ============================================================
+-->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Autoría y desarrollo -->
+    <meta name="author" content={`${DEVELOPER_DESIGNER} — ${DEVELOPER_NAME}`} />
+    <meta name="designer" content={`${DEVELOPER_DESIGNER} — ${DEVELOPER_NAME} | ${DEVELOPER_URL}`} />
+    <meta name="web_author" content={DEVELOPER_NAME} />
+    <meta name="owner" content={SITE_NAME} />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- Título y descripción -->
     <title>{title} | {SITE_NAME}</title>
@@ -96,6 +129,7 @@ const schemaOrg = {
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
@@ -167,10 +201,19 @@ const schemaOrg = {
 
     <!-- Slot para head adicional por página (meta robots, schema específico, etc.) -->
     <slot name="head" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JQH6CVW27R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JQH6CVW27R');
+    </script>
   </head>
 
   <body>
-    <!-- Sitio desarrollado y creado por FrandoWeb https://frandoweb.com/ -->
+    <!-- Desarrollado por Hernán — FrandoWeb | https://www.frandoweb.com | Tel: +54 11 2807-4000 -->
     <slot />
 
     <!-- Botón flotante WhatsApp — presente en todas las páginas -->
