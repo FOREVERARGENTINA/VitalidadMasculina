@@ -52,6 +52,16 @@ const services = [
   title={`${SITE_NAME} · Especialista en Salud Masculina`}
   description={`Consultas especializadas en salud masculina en Capital Federal y por videollamada para toda Argentina. Atenci\u00f3n para pacientes de Palermo, Belgrano, Recoleta, Caballito, Villa Urquiza, Barrio Norte, N\u00fa\u00f1ez, Colegiales, Almagro y Puerto Madero.`}
 >
+  <!-- Preload de imagen LCP: el browser la descarga antes de parsear el CSS -->
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="/images/hero.webp"
+    fetchpriority="high"
+    type="image/webp"
+  />
+
   <Header />
 
   <main id="main-content">

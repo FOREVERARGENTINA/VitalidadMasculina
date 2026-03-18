@@ -9,6 +9,14 @@ const SITE = 'https://vitalidadmasculina.com.ar';
 export default defineConfig({
   site: SITE,
   output: 'static',
+  vite: {
+    build: {
+      // Aumenta el límite para inlinear CSS pequeño directamente en el HTML
+      // en vez de generar archivos externos que bloquean el render
+      cssCodeSplit: true,
+      assetsInlineLimit: 4096,
+    },
+  },
   integrations: [
     tailwind(),
     sitemap({
