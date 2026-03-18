@@ -7,17 +7,20 @@ import { SITE_NAME } from '../../utils/constants';
   <div class="header-inner">
 
     <!-- Logo -->
-    <a href="/" class="logo" aria-label={`${SITE_NAME} — Inicio`}>
+    <a href="/" class="logo" aria-label={SITE_NAME}>
       <!-- TODO: reemplazar con SVG del logo cuando esté disponible -->
-      <img
-        src="/images/logotipo.png"
-        alt="Logo Vitalidad Masculina"
-        class="logo-image"
-        width="64"
-        height="64"
-        loading="eager"
-        decoding="async"
-      />
+      <picture>
+        <source media="(max-width: 768px)" srcset="/images/logotipo-movil.png" />
+        <img
+          src="/images/logotipo.png"
+          alt="Logo Vitalidad Masculina"
+          class="logo-image"
+          width="64"
+          height="64"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
       <span class="logo-text">
         <span class="logo-title">Vitalidad Masculina</span>
       </span>
