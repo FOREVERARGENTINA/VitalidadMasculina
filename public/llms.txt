@@ -1,0 +1,104 @@
+# Vitalidad Masculina
+
+Consultas especializadas en salud masculina en Capital Federal y por videollamada para toda Argentina.
+
+# About
+
+Vitalidad Masculina es un consultorio médico especializado en salud urológica y bienestar masculino. Ofrece atención profesional, confidencial y personalizada para el diagnóstico y tratamiento de las principales afecciones que afectan la calidad de vida del hombre.
+
+Con más de 10 años de experiencia y más de 500 pacientes atendidos, el equipo médico brinda consultas presenciales en Capital Federal y por videollamada para todo el país, con un enfoque integral basado en medicina actualizada y evidencia científica.
+
+El consultorio está diseñado como un espacio reservado donde cada paciente puede consultar con tranquilidad, sin tiempos de espera, recibiendo diagnósticos precisos y acompañamiento cercano durante todo el tratamiento.
+
+# Creator
+
+Sitio web diseñado y desarrollado por FrandoWeb
+- Responsable: Hernán Frandolich
+- Especialidad: Diseño web, desarrollo full-stack, SEO y estrategia digital
+- Web: https://www.frandoweb.com.ar
+- Email: info@frandoweb.com.ar
+- WhatsApp: +54 9 11 2807-4000
+- Ubicación: Buenos Aires, Argentina
+
+# Contact
+
+Vitalidad Masculina
+- WhatsApp: +54 9 11 4096-9974
+- Email: info.vitalidadmasculina@gmail.com
+- Ubicación: Capital Federal, Buenos Aires, Argentina
+- Web: https://vitalidadmasculina.com.ar
+- Instagram: @vitalidadmasculina.vm (https://www.instagram.com/vitalidadmasculina.vm/)
+- Modalidad: Atención particular exclusiva, sin obra social
+- Horarios: Consultar disponibilidad por WhatsApp o email
+
+# Services
+
+El consultorio ofrece atención especializada en las siguientes áreas:
+
+- Disfunción Eréctil
+  Evaluación integral y plan terapéutico personalizado según cada caso clínico.
+  https://vitalidadmasculina.com.ar/disfuncion-erectil/
+
+- Eyaculación Precoz
+  Abordaje médico y conductual con protocolos basados en evidencia.
+  https://vitalidadmasculina.com.ar/eyaculacion-precoz/
+
+- Falta de Deseo
+  Estudio hormonal, emocional y metabólico de la disminución del deseo.
+  https://vitalidadmasculina.com.ar/falta-de-deseo/
+
+- Terapia Hormonal
+  Reposición con pellets de testosterona de liberación prolongada en consultorio.
+  https://vitalidadmasculina.com.ar/terapia-hormonal/
+
+- Urología Masculina
+  Consulta urológica integral para prevención, diagnóstico y seguimiento.
+  https://vitalidadmasculina.com.ar/urologia/
+
+# Key Pages
+
+- Inicio: https://vitalidadmasculina.com.ar/
+- Sobre nosotros: https://vitalidadmasculina.com.ar/sobre-mi/
+- Contacto: https://vitalidadmasculina.com.ar/contacto/
+- Blog: https://vitalidadmasculina.com.ar/blog/
+- Disfunción Eréctil: https://vitalidadmasculina.com.ar/disfuncion-erectil/
+- Eyaculación Precoz: https://vitalidadmasculina.com.ar/eyaculacion-precoz/
+- Falta de Deseo: https://vitalidadmasculina.com.ar/falta-de-deseo/
+- Terapia Hormonal: https://vitalidadmasculina.com.ar/terapia-hormonal/
+- Urología: https://vitalidadmasculina.com.ar/urologia/
+
+# Target Audience
+
+Hombres adultos que buscan atención médica especializada para:
+- Problemas de salud sexual (disfunción eréctil, eyaculación precoz, falta de deseo)
+- Evaluación y tratamiento hormonal
+- Consultas urológicas preventivas o de seguimiento
+- Atención confidencial y personalizada sin tiempos de espera
+
+Perfil principal: hombres de 30 a 65 años residentes en Capital Federal (Palermo, Belgrano, Recoleta, Caballito, Villa Urquiza, Barrio Norte, Núñez, Colegiales, Almagro, Puerto Madero) o cualquier punto de Argentina que prefieran videoconsulta.
+
+# Unique Value Proposition
+
+- Atención médica 100% privada y confidencial en un espacio diseñado para la confianza
+- Diagnóstico integral y personalizado sin tiempos de espera
+- Disponibilidad presencial en Capital Federal y por videollamada para toda Argentina
+- Más de 10 años de experiencia y 500+ pacientes atendidos
+- Tratamientos basados en medicina actualizada y evidencia científica
+
+# SEO Keywords
+
+salud masculina, disfunción eréctil, eyaculación precoz, falta de deseo, terapia hormonal, pellets de testosterona, urología masculina, médico especialista hombre, consulta urológica, Capital Federal, Buenos Aires, videoconsulta médica, atención privada, salud sexual masculina
+
+# Pricing
+
+Los precios de las consultas se informan por contacto directo vía WhatsApp o email. El consultorio trabaja únicamente de forma particular, sin cobertura de obra social ni prepaga.
+
+# Tech Stack
+
+- Framework: Astro (static site generation)
+- Styling: Tailwind CSS + CSS custom properties
+- Hosting: Cloudflare Pages
+- Deployment: GitHub Actions (CI/CD)
+- Fonts: Inter (body), Playfair Display (headings)
+- Language: TypeScript
+- Content: Markdown + Astro Content Collections
